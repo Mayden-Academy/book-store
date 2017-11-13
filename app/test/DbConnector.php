@@ -1,12 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: academy
- * Date: 13/11/2017
- * Time: 16:26
- */
-
-class DbConnector
+use PHPUnit\Framework\TestCase;
+require '../src/DbConnector.php';
+class DbConnectorTest extends TestCase
 {
-
+    public function testConstructor() {
+        $db = new \App\DbConnector();
+        $this->assertInstanceOf($db, new \PDO());
+    }
 }
