@@ -1,0 +1,25 @@
+.ReturnToHome {
+    padding: 20px;
+    margin-top: 150px;
+}
+.ReturnToHome a {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+.individualBookImage {
+    background-color: #a94442;
+    height: 500px;
+}
+.individualBookTitle {
+    background-color: #5bc0de;
+}
+.individualBookDescription {
+    height: 350px;
+    background-color: #5bc0de;
+}
+.individualBookPrice {
+    background-color: #2b542c;
+}
+.individualBookAddToCart {
+    background-color: #c7254e;
+}
