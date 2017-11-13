@@ -15,6 +15,7 @@
     </div>
     <div class="row">
         <div class="col-xs-5 individualBookImage">
+            <h1>imageeeess</h1>
         </div>
         <div class="col-xs-6 col-xs-offset-1 individualBookTitle">
             <h3>Positively True Adventures of the Alleged Texas Cheerleader-Murdering Mom, The</h3>
@@ -34,7 +35,7 @@
             <h1>£</h1>
         </div>
         <div class="col-xs-6 col-xs-offset-1 individualBookAddToCart">
-            <h1>Add To CART</h1>
+            <h1>Add To Cart</h1>
         </div>
     </div>
 </div>

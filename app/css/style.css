@@ -1,6 +1,7 @@
 .ReturnToHome {
     padding: 20px;
     margin-top: 150px;
+    margin-bottom: 5px;
 }
 .ReturnToHome a {
     color: #FFFFFF;
@@ -22,4 +23,5 @@
 }
 .individualBookAddToCart {
     background-color: #c7254e;
+    text-align: center;
 }
