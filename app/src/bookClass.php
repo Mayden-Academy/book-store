@@ -1,13 +1,11 @@
 <?php
+
+namespace App;
+
 /**
- * Created by PhpStorm.
- * User: alexandrk
- * Date: 13/11/2017
- * Time: 16:13
+ * Class book
+ * @package App\books
  */
-
-namespace App\books;
-
 class book
 {
     public $title;
