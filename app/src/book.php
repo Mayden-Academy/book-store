@@ -3,8 +3,8 @@
 namespace App;
 
 /**
- * Class book
- * @package App\books
+ * Class book - class with book attributes
+ * @package App
  */
 class book
 {
