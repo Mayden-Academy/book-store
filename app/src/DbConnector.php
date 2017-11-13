@@ -2,7 +2,12 @@
 
 namespace App;
 
-
+/**
+ * Class DbConnector
+ * @package App
+ * automatically instantiates the database connector object using PDO which can then be called with the $db variable.
+ * dependencies: needed for all database queries.
+ */
 class DbConnector
 {
     public function __construct()
