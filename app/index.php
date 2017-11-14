@@ -1,19 +1,17 @@
-<?php
-require "../vendor/autoload.php";
-?>
+<?php require "../vendor/autoload.php"; ?>
 
 <!DOCTYPE html>
-<html lan="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
     <title>Book List</title>
 </head>
 <body>
-<?php
-include "header.php";
-?>
+
+<?php include "header.php"?>
+
 <form>
     <input type="text" placeholder="Type here to search...">
     <button type="button">Search</button>
@@ -37,11 +35,9 @@ include "header.php";
         <a href="">More details</a>
     </div>
 
-
 </div>
 
-<?php
-include "footer.php";
-?>
+<?php include "footer.php"?>
+
 </body>
 </html>
