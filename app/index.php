@@ -45,8 +45,6 @@
                 <!--SAMPLE FILTER BUTTON-->
                 <p class="filterButton"><a href="index.php">Remove filter</a></p>
 
-
-
             </div>
         </div>
 
@@ -60,84 +58,83 @@
                 <p>More details</p>
             </a>
             <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
+            <!--SAMPLE LISTED BOOK-->
+            <a class="listedBook col-xs-4">
+                <img class="bookImage" src="images/bookImage.jpeg">
+                <h3>TITLE</h3>
+                <h4>£5.99</h4>
+                <p>More details</p>
+            </a>
 
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
         </div>
-
     </div>
 </div>
 
