@@ -5,7 +5,7 @@ Use App\Book as Book;
 /**
  * Class Store - prepare and execute query to DB to get all book names, ids, prices and images
  * @package App
- * @return list(object) of all books
+ * @return array(object) of all books
  */
 class Store
 {
