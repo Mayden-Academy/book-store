@@ -40,10 +40,10 @@ class Store
         foreach ($books as $book) {
             echo "<div class='listedBook col-xs-4'>
                         <a href='../individualBookPage.php?id=$book->id'>
-                            <img class='listedBookImage' src='$book->image'>
-                            <h4 class=''>$book->title</h4>
-                            <h4 class=''>£$book->price</h4>
-                            <p class=''>$book->description</p>
+                            <img class='bookImage' src='$book->image'>
+                            <h4 class='title'>$book->title</h4>
+                            <h4 class='price'>£$book->price</h4>
+                            <p class='description'>$book->description</p>
                         </a>
                   </div>";
         }
