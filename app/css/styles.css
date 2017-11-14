@@ -1,5 +1,4 @@
-
-.trolley{
+.trolley {
     height: 50px;
     margin: 5px;
 }
@@ -18,6 +17,10 @@
 .individualBookImage {
     background-color: #a94442;
     height: 500px;
+}
+
+.listedBookImage {
+    max-width: 100%;
 }
 
 .individualBookTitle {

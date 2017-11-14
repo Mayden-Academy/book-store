@@ -17,19 +17,48 @@
     <button type="button">Search</button>
 </form>
 
-<div class="filter-column col-xs-3">
+<div class="filterColumn col-xs-3">
     <h2>Filter by price</h2>
 
     <!--SAMPLE FILTER BUTTON-->
-    <a href="index.php">£0.00 - £9.99</a>
+    <div class="filterButton col-xs-12"><a href="index.php">£0.00 - £9.99</a></div>
+    <!--SAMPLE FILTER BUTTON-->
+    <div class="filterButton col-xs-12"><a href="index.php">£0.00 - £9.99</a></div>
+    <!--SAMPLE FILTER BUTTON-->
+    <div class="filterButton col-xs-12"><a href="index.php">£0.00 - £9.99</a></div>
+    <!--SAMPLE FILTER BUTTON-->
+    <div class="filterButton col-xs-12"><a href="index.php">£0.00 - £9.99</a></div>
+    <!--SAMPLE FILTER BUTTON-->
+    <div class="filterButton col-xs-12"><a href="index.php">£0.00 - £9.99</a></div>
 
 </div>
 
-<div class="book-list col-xs-9">
+<div class="bookList col-xs-9">
 
     <!--SAMPLE LISTED BOOK-->
-    <div class="listed-book col-xs-4">
-        <img src="">
+    <div class="listedBook col-xs-4">
+        <img class="listedBookImage" src="images/bookImage.jpeg">
+        <h3>TITLE</h3>
+        <h4>£5.99</h4>
+        <a href="">More details</a>
+    </div>
+    <!--SAMPLE LISTED BOOK-->
+    <div class="listedBook col-xs-4">
+        <img class="listedBookImage" src="images/bookImage.jpeg">
+        <h3>TITLE</h3>
+        <h4>£5.99</h4>
+        <a href="">More details</a>
+    </div>
+    <!--SAMPLE LISTED BOOK-->
+    <div class="listedBook col-xs-4">
+        <img class="listedBookImage" src="images/bookImage.jpeg">
+        <h3>TITLE</h3>
+        <h4>£5.99</h4>
+        <a href="">More details</a>
+    </div>
+    <!--SAMPLE LISTED BOOK-->
+    <div class="listedBook col-xs-4">
+        <img class="listedBookImage" src="images/bookImage.jpeg">
         <h3>TITLE</h3>
         <h4>£5.99</h4>
         <a href="">More details</a>
