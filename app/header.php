@@ -8,8 +8,8 @@
 </head>
 <body>
 <header>
-    <nav class="navbar bg-info">
-        <div class="container-fluid navbar-fixed-top">
+    <nav class="navbar bg-info siteHeader">
+        <div class="container-fluid navbar-fixed-top siteHeaderContent">
                 <div class="navbar-brand">
                     BMcB
                 </div>
