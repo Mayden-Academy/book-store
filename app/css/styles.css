@@ -3,10 +3,50 @@
     margin: 5px;
 }
 
+footer {
+    position: relative;
+    bottom: 0;
+    height: 30px;
+}
+
+.stickyFooterExcluder {
+    min-height: calc(100vh - 80px);
+}
+
+h1 {
+    margin: 0;
+    padding: 20px 0;
+}
+
+body {
+    min-width: 970px;
+}
+
+.searchAndFilterColumn {
+    padding: 0;
+}
+
+.filterColumn {
+    margin-top: 50px;
+}
+
+.searchButton {
+    padding: 1px 5px 3px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
 .ReturnToHome {
     padding: 20px;
     margin-top: 100px;
     margin-bottom: 5px;
+}
+
+.searchForm {
+  padding: 0;
 }
 
 .ReturnToHome a {
@@ -19,7 +59,7 @@
     height: 500px;
 }
 
-.listedBookImage {
+.bookImage {
     max-width: 100%;
 }
 
