@@ -19,13 +19,13 @@
     height: 75px;
 }
 
-.individualBookDescriptionHeader {
-    height: 75px;
-}
-
 .individualBookDescription {
     height: 350px;
     background-color: #5bc0de;
+}
+.individualBookDescriptionHeader h3 {
+    margin: 0;
+    line-height: 75px;
 }
 
 .individualBookPrice {
