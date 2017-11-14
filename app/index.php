@@ -15,8 +15,3 @@ require "../vendor/autoload.php";
 <?php include_once "footer.php"?>
 </body>
 </html>
-
-
-
-
-
