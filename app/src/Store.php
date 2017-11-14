@@ -4,7 +4,7 @@ namespace App;
 
 
 /**
- * Class Store
+ * Class Store - prepare and execute query to DB to get all book names, ids, prices and images
  * @package App
  * @return list of all books
  */
