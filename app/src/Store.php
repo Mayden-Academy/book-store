@@ -9,15 +9,22 @@ Use App\Book as Book;
  */
 class Store
 {
+
+    public $db;
+
+    public function __construct(DbConnector $connection)
+    {
+        $this->db = $connection->db;
+    }
+
     /**
      * @param $db - property from DbConnector class
      */
-    public function getData($db){
-        $query = $db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
+    public function getAllBooks(){
+        $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
         $query->execute();
         $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
         $books = $query->fetchAll();
-        var_dump($books);
         return $books;
     }
 }
