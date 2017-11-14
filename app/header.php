@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-<header>
-    <nav class="navbar">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link href="css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+<!--    <link href="css/style.css" type="text/css" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--<header>/-->
+    <header class="navbar">
         <div class="container-fluid navbar-fixed-top bg-info">
                 <div class="navbar-brand text-primary">
                     BMcB
@@ -28,7 +28,7 @@
                 <img src="images/trolley.svg" class="trolley"/>
             </a>
         </div>
-    </nav>
-</header>
-</body>
-</html>
+    </header>
+<!--</header>-->
+<!--</body>-->
+<!--</html>-->
