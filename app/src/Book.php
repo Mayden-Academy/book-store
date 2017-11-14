@@ -6,8 +6,9 @@ namespace App;
  * Class book - class with book attributes
  * @package App
  */
-class book
+class Book
 {
+    public $id;
     public $title;
     public $price;
     public $description;

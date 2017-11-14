@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require "../src/book.php";
+require "../src/Book.php";
 
 class bookTest extends TestCase {
     public function testBook() {
