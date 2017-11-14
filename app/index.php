@@ -22,7 +22,7 @@ require "../vendor/autoload.php";
 $db = new \App\DbConnector();
 $store = new \App\Store($db);
 $books = $store->getAllBooks();
-var_dump($books);
+$store->showAllBooks($books);
 ?>
 
 <?php include_once "footer.php"?>
