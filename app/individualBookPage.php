@@ -1,3 +1,6 @@
+<?php
+require "../vendor/autoload.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +11,16 @@
 </head>
 <body>
 <?php include_once "header.php"?>
+<?php
+$db = new \App\DbConnector();
+$store = new \App\Store($db);
+if (isset($_GET['$id'])&& is_int($_GET['$id'])){
+    $individualBook = $store->getIndividualBook($_GET['$id']);
+} else {
+    $individualBook = new \App\Book();
+}
+?>
+
 <div class="container">
     <div class="row">
         <div class="col-xs-2 label label-primary ReturnToHome">
@@ -16,25 +29,25 @@
     </div>
     <div class="row">
         <div class="col-xs-5 individualBookImage">
-            <h1>imageeeess</h1>
+            <img src="<?php echo $individualBook->image; ?>"/>
         </div>
         <div class="col-xs-6 col-xs-offset-1 individualBookTitle">
-            <h3>Positively True Adventures of the Alleged Texas Cheerleader-Murdering Mom, The</h3>
+            <h3><?php echo $individualBook->title; ?></h3>
         </div>
         <div class="col-xs-6 col-xs-offset-1 individualBookDescriptionHeader">
             <h3>Description:</h3>
         </div>
         <div class="col-xs-6 col-xs-offset-1 individualBookDescription">
-            <p>Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.</p>
+            <p><?php echo $individualBook->description; ?></p>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-xs-2 individualBookPrice">
-            <h1>Price</h1>
+            <h1>Price:</h1>
         </div>
         <div class="col-xs-2 col-xs-offset-1 individualBookPrice">
-            <h1>£</h1>
+            <h1>£<?php echo $individualBook->price; ?></h1>
         </div>
         <div class="col-xs-6 col-xs-offset-1 individualBookAddToCart">
             <h1>Add To Cart</h1>

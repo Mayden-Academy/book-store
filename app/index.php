@@ -1,11 +1,5 @@
 <?php
 require "../vendor/autoload.php";
-
-//$store = new \App\Store();
-//var_dump($store);
-//$db = new \App\DbConnector();
-//$store->getData($db);
-
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +16,6 @@ require "../vendor/autoload.php";
 $db = new \App\DbConnector();
 $store = new \App\Store($db);
 $books = $store->getAllBooks();
-var_dump($books);
 ?>
 
 <?php include_once "footer.php"?>
