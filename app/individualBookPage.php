@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>BOOK PAGE | BOOK STORE</title>
+    <title>BOOK PAGE | Booky McBookface</title>
 </head>
 <body>
+<?php include_once "header.php"?>
 <div class="container">
     <div class="row">
         <div class="col-xs-2 label label-primary ReturnToHome">
@@ -40,5 +41,6 @@
         </div>
     </div>
 </div>
+<?php include_once "footer.php"?>
 </body>
 </html>
