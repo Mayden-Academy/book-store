@@ -1,5 +1,5 @@
-<footer>
-    <nav class="bg-info navbar-fixed-bottom">
+<footer class="footer">
+    <div class="bg-info">
         <h1 class="text-primary text-center">Booky McBookface</h1>
-    </nav>
+    </div>
 </footer>
