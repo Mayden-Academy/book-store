@@ -1,4 +1,48 @@
+
 .trolley{
     height: 50px;
     margin: 5px;
+}
+
+.ReturnToHome {
+    padding: 20px;
+    margin-top: 150px;
+    margin-bottom: 5px;
+}
+
+.ReturnToHome a {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.individualBookImage {
+    background-color: #a94442;
+    height: 500px;
+}
+
+.individualBookTitle {
+    background-color: #5bc0de;
+    height: 75px;
+}
+
+.individualBookDescriptionHeader {
+    height: 75px;
+}
+
+.individualBookDescription {
+    height: 350px;
+    background-color: #5bc0de;
+}
+
+.individualBookPrice {
+    background-color: #2b542c;
+}
+
+.individualBookAddToCart {
+    background-color: #c7254e;
+    text-align: center;
+}
+
+.priceCart {
+    padding-top: 5px;
 }
