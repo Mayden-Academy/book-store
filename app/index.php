@@ -6,7 +6,7 @@ require "../vendor/autoload.php";
 <html lan="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Book List</title>
 </head>
