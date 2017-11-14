@@ -10,10 +10,6 @@ namespace App;
  */
 class DbConnector
 {
-    /**
-     * @var \PDO
-     * uses $db as a property whose value is the PDO object
-     */
     public $db;
 
     /**
