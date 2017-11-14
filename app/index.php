@@ -1,11 +1,5 @@
 <?php
 require "../vendor/autoload.php";
-
-//$store = new \App\Store();
-//var_dump($store);
-//$db = new \App\DbConnector();
-//$store->getData($db);
-
 ?>
 
 <!DOCTYPE html>

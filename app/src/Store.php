@@ -29,9 +29,12 @@ class Store
         $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
         $books = $query->fetchAll();
         return $books;
-
     }
 
+
+    /**
+     * @param $books - returned from getAllBooks, an array of objects
+     */
     public function showAllBooks($books)
     {
         foreach ($books as $book) {
