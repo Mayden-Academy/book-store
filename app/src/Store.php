@@ -2,8 +2,12 @@
 
 namespace App;
 
-//require_once "DbConnector.php";
 
+/**
+ * Class Store
+ * @package App
+ * @return list of all books
+ */
 class Store
 {
     public function getData($db){
