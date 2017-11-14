@@ -7,6 +7,7 @@
     <title>BOOK PAGE | BOOK STORE</title>
 </head>
 <body>
+<?php include_once "header.php"?>
 <div class="container">
     <div class="row">
         <div class="col-xs-2 label label-primary ReturnToHome">
@@ -40,5 +41,6 @@
         </div>
     </div>
 </div>
+<?php include_once "footer.php"?>
 </body>
 </html>
