@@ -1,4 +1,6 @@
-<?php require "../vendor/autoload.php"; ?>
+<?php
+require "../vendor/autoload.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +11,9 @@
     <title>Book List</title>
 </head>
 <body>
-<?php include "header.php"?>
+
+<div class="stickyFooterExcluder">
+    <?php include "header.php" ?>
 
     <div class="container">
         <div class="searchAndFilterColumn col-xs-3">
@@ -41,7 +45,6 @@
 
                 <!--SAMPLE FILTER BUTTON-->
                 <p class="filterButton"><a href="index.php">Remove filter</a></p>
-
             </div>
         </div>
 
@@ -54,7 +57,8 @@
             ?>
         </div>
     </div>
-<?php include "footer.php"?>
+</div>
+<?php include "footer.php" ?>
 </body>
 </html>
 

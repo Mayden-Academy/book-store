@@ -57,7 +57,7 @@ a:hover {
 }
 
 .searchForm {
-  padding: 0;
+    padding: 0;
 }
 
 .ReturnToHome a {
@@ -68,6 +68,11 @@ a:hover {
 .individualBookImage {
     background-color: #a94442;
     height: 500px;
+}
+
+.individualBookImage img {
+    width: 100%;
+    margin: 20% auto;
 }
 
 .bookImage {
@@ -83,6 +88,7 @@ a:hover {
     height: 350px;
     background-color: #5bc0de;
 }
+
 .individualBookDescriptionHeader h3 {
     margin: 0;
     line-height: 75px;
