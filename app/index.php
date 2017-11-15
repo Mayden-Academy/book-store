@@ -11,7 +11,9 @@ require "../vendor/autoload.php";
     <title>Book List</title>
 </head>
 <body>
-<?php include "header.php"?>
+
+<div class="stickyFooterExcluder">
+    <?php include "header.php" ?>
 
     <div class="container">
         <div class="searchAndFilterColumn col-xs-3">
@@ -55,7 +57,8 @@ require "../vendor/autoload.php";
             ?>
         </div>
     </div>
-<?php include "footer.php"?>
+</div>
+<?php include "footer.php" ?>
 </body>
 </html>
 
