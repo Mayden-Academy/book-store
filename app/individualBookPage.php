@@ -1,26 +1,24 @@
 <?php
 require "../vendor/autoload.php";
-$db = new \App\DbConnector();
-$store = new \App\Store($db);
 
 if (isset($_GET['id'])) {
-    $individualBook = $store->getIndividualBook($_GET['id']);
-} else {
-    $individualBook = new \App\Book();
+    $conn = new \App\DbConnector();
+    $individualBook = new \App\Book($conn->db, $_GET['id']);
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Individual Book Page</title>
+    <title>View Book:<?php echo $individualBook->title ?> </title>
 </head>
 <body>
 
 <div class="stickyFooterExcluder">
-    <?php include_once "header.php"; ?>
+    <?php include "includes/header.php"; ?>
 
     <div class="container">
         <div class="row">
@@ -48,7 +46,7 @@ if (isset($_GET['id'])) {
                 <h1>Price:</h1>
             </div>
             <div class="col-xs-2 col-xs-offset-1 individualBookPrice">
-                <h1>£<?php echo $individualBook->price; ?></h1>
+                <h1><?php echo $individualBook->displayPrice(); ?></h1>
             </div>
             <div class="col-xs-6 col-xs-offset-1 individualBookAddToCart">
                 <h1>Add To Cart</h1>
@@ -56,6 +54,6 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include "includes/footer.php" ?>
 </body>
 </html>
