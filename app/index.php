@@ -9,16 +9,13 @@
     <title>Book List</title>
 </head>
 <body>
-
-<div class="stickyFooterExcluder">
-
 <?php include "header.php"?>
 
     <div class="container">
         <div class="searchAndFilterColumn col-xs-3">
             <form class="searchForm col-xs-12">
                 <input class="searchInput col-xs-8" type="text" placeholder="Type here...">
-                <button class="searchButton col-xs-4" type="button">Search</button>
+                <button class="searchButton btn btn-default col-xs-4" type="button">Search</button>
             </form>
 
             <div class="filterColumn">
@@ -49,97 +46,15 @@
         </div>
 
         <div class="bookList col-xs-9">
-
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-            <!--SAMPLE LISTED BOOK-->
-            <a class="listedBook col-xs-4">
-                <img class="bookImage" src="images/bookImage.jpeg">
-                <h3>TITLE</h3>
-                <h4>£5.99</h4>
-                <p>More details</p>
-            </a>
-
+            <?php
+            $db = new \App\DbConnector();
+            $store = new \App\Store($db);
+            $books = $store->getAllBooks();
+            $store->showAllBooks($books);
+            ?>
         </div>
     </div>
-</div>
-
 <?php include "footer.php"?>
-
 </body>
 </html>
 

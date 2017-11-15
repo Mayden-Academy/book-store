@@ -18,6 +18,12 @@ h1 {
     padding: 20px 0;
 }
 
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 body {
     min-width: 970px;
 }
@@ -31,7 +37,12 @@ body {
 }
 
 .searchButton {
-    padding: 1px 5px 3px;
+    padding: 5px 5px;
+}
+
+.searchInput {
+    height: 32px;
+    outline: 0;
 }
 
 a:hover {
