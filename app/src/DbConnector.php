@@ -10,7 +10,7 @@ namespace App;
  */
 class DbConnector
 {
-    public $db;
+    private $db;
 
     /**
      * DbConnector constructor.
@@ -19,5 +19,9 @@ class DbConnector
     public function __construct()
     {
         $this->db = new \PDO('mysql:host=127.0.0.1;dbname=bookStore', 'root', '');
+    }
+
+    public function getDb() {
+        return $this->db;
     }
 }

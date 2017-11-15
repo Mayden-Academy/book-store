@@ -6,7 +6,7 @@ Use App\Book as Book;
 
 class Store
 {
-    public $db;
+    private $db;
 
     /**
      * Store constructor.
@@ -26,7 +26,6 @@ class Store
         $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
         $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
         $query->execute();
-        $books = $query->fetchAll();
-        return $books;
+        return $books = $query->fetchAll();
     }
 }

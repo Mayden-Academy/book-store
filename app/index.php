@@ -1,7 +1,7 @@
 <?php
 require "../vendor/autoload.php";
 $conn = new \App\DbConnector();
-$store = new \App\Store($conn->db);
+$store = new \App\Store($conn->getDb());
 $books = $store->getAllBooks();
 ?>
 

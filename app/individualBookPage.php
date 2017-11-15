@@ -3,7 +3,7 @@ require "../vendor/autoload.php";
 
 if (isset($_GET['id'])) {
     $conn = new \App\DbConnector();
-    $individualBook = new \App\Book($conn->db, $_GET['id']);
+    $individualBook = new \App\Book($conn->getDb(), $_GET['id']);
 }
 ?>
 
@@ -21,11 +21,6 @@ if (isset($_GET['id'])) {
     <?php include "includes/header.php"; ?>
 
     <div class="container">
-        <div class="row">
-            <div class="col-xs-2 label label-primary returnToHome">
-                <a href="index.php">Return to search results</a>
-            </div>
-        </div>
         <div class="row">
             <div class="col-xs-5 individualBookImage">
                 <img src="<?php echo $individualBook->image; ?>"/>
@@ -48,9 +43,9 @@ if (isset($_GET['id'])) {
             <div class="col-xs-2 col-xs-offset-1 individualBookPrice">
                 <h1><?php echo $individualBook->displayPrice(); ?></h1>
             </div>
-            <div class="col-xs-6 col-xs-offset-1 individualBookAddToCart">
+            <button class="col-xs-6 col-xs-offset-1 .btn btn-success">
                 <h1>Add To Cart</h1>
-            </div>
+            </button>
         </div>
     </div>
 </div>

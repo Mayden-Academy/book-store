@@ -18,6 +18,7 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 30px;
 }
 
 .bookImage {
@@ -66,7 +67,6 @@ a:hover {
 
 /*individual book*/
 .individualBookImage {
-    background-color: #a94442;
     height: 500px;
 }
 
@@ -76,13 +76,11 @@ a:hover {
 }
 
 .individualBookTitle {
-    background-color: #5bc0de;
     height: 75px;
 }
 
 .individualBookDescription {
     height: 350px;
-    background-color: #5bc0de;
 }
 
 .individualBookDescriptionHeader h3 {
@@ -91,13 +89,11 @@ a:hover {
 }
 
 .individualBookPrice {
-    background-color: #2b542c;
 }
 
-.individualBookAddToCart {
-    background-color: #c7254e;
-    text-align: center;
-}
+/*.individualBookAddToCart {*/
+    /*text-align: center;*/
+/*}*/
 
 /*footer*/
 footer {
