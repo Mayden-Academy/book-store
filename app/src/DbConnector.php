@@ -14,7 +14,7 @@ class DbConnector
 
     /**
      * DbConnector constructor.
-     * * automatically instantiates the database connector object using PDO which can then be called with the $db variable.
+     * automatically instantiates the DB connector object using PDO which can then be called with the $db variable.
      */
     public function __construct()
     {

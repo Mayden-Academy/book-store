@@ -3,7 +3,8 @@
 namespace App;
 
 /**
- * Class book - class with book attributes
+ * Book Class - class with book properties
+ * Used as a DB entity
  * @package App
  */
 class Book

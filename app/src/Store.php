@@ -4,11 +4,6 @@ namespace App;
 
 Use App\Book as Book;
 
-/**
- * Class Store - prepare and execute query to DB to get all book names, ids, prices and images
- * @package App
- * @return array(object) of all books
- */
 class Store
 {
     public $db;
@@ -35,22 +30,6 @@ class Store
         return $books;
     }
 
-    /**
-     * @param $books - returned from getAllBooks, an array of objects
-     */
-    public function showAllBooks($books)
-    {
-        foreach ($books as $book) {
-            echo "<div class='listedBook col-xs-4'>
-                        <a href='individualBookPage.php?id=$book->id'>
-                            <img class='bookImage' src='$book->image'>
-                            <h4 class='title'>$book->title</h4>
-                            <h4 class='price'>£$book->price</h4>
-                            <p class='description'>$book->description</p>
-                        </a>
-                  </div>";
-        }
-    }
 
     /**
      * gets the data from the DataBase for individual book given the id
@@ -60,7 +39,7 @@ class Store
     public function getIndividualBook(int $id): Book
     {
         $query = $this->db->prepare("SELECT `id`, `title`, `price`, `description`, `image` FROM `books` WHERE `id` = :id;");
-        $query->bindParam(":id", $id);
+        $query->bindParam(":id", $id, \PDO::PARAM_INT);
         $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
         $query->execute();
         $book = $query->fetch();
@@ -68,7 +47,6 @@ class Store
             return $book;
         } else {
             return new Book();
-
         }
     }
 }
