@@ -14,16 +14,14 @@ class Store
 
     public $db;
 
-    public function __construct(DbConnector $connection)
-    {
+    public function __construct(DbConnector $connection) {
         $this->db = $connection->db;
     }
 
     /**
      * @param $db - property from DbConnector class
      */
-    public function getAllBooks()
-    {
+    public function getAllBooks() {
         $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
         $query->execute();
         $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
@@ -35,8 +33,7 @@ class Store
     /**
      * @param $books - returned from getAllBooks, an array of objects
      */
-    public function showAllBooks($books)
-    {
+    public function showAllBooks($books) {
         foreach ($books as $book) {
             echo "<div class='listedBook col-xs-4'>
                         <a href='../individualBookPage.php?id=$book->id'>
