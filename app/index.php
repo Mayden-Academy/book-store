@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../vendor/autoload.php";
 $db = new \App\DbConnector();
 $store = new \App\Store($db);

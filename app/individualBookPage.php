@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../vendor/autoload.php";
 $db = new \App\DbConnector();
 $store = new \App\Store($db);
@@ -51,7 +52,7 @@ if (isset($_GET['id'])) {
                 <h1>£<?php echo $individualBook->price; ?></h1>
             </div>
             <div class="col-xs-6 col-xs-offset-1 individualBookAddToCart">
-                <h1>Add To Cart</h1>
+                <h1><a href="emptypage.php?id=<?php echo $individualBook->id?>&price=<?php echo $individualBook->price?>">Add To Cart</a></h1>
             </div>
         </div>
     </div>
