@@ -42,7 +42,7 @@ class Store
     {
         foreach ($books as $book) {
             echo "<div class='listedBook col-xs-4'>
-                        <a href='../individualBookPage.php?id=$book->id'>
+                        <a href='individualBookPage.php?id=$book->id'>
                             <img class='bookImage' src='$book->image'>
                             <h4 class='title'>$book->title</h4>
                             <h4 class='price'>£$book->price</h4>

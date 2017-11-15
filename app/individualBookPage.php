@@ -14,8 +14,9 @@ require "../vendor/autoload.php";
 <?php
 $db = new \App\DbConnector();
 $store = new \App\Store($db);
-if (isset($_GET['$id'])&& is_int($_GET['$id'])){
-    $individualBook = $store->getIndividualBook($_GET['$id']);
+
+if (isset($_GET['id'])){
+    $individualBook = $store->getIndividualBook($_GET['id']);
 } else {
     $individualBook = new \App\Book();
 }
