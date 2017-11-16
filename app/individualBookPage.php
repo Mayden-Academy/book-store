@@ -1,7 +1,6 @@
 <?php
-session_start();
 require "../vendor/autoload.php";
-
+session_start();
 if (isset($_GET['id'])) {
     $conn = new \App\DbConnector();
     $individualBook = new \App\Book($conn->getDb(), $_GET['id']);
@@ -17,7 +16,6 @@ if (isset($_GET['id'])) {
     <title>View Book:<?php echo $individualBook->title; ?> </title>
 </head>
 <body>
-
 <div class="stickyFooterExcluder">
 
     <?php include "includes/header.php";

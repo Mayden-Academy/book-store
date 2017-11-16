@@ -13,7 +13,6 @@ session_start();
     <title>Shopping Cart</title>
 </head>
 <body>
-
 <div class="stickyFooterExcluder">
 
     <?php include 'includes/header.php'; ?>
@@ -38,7 +37,7 @@ session_start();
                     ?>
                     <tr>
                         <td>
-                            <a href="../individualBookPage.php?id=<?php echo $book->id; ?>"> <?php echo $book->title; ?> </a>
+                            <a href='../individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?> </a>
                         </td>
                         <td>£<?php echo $book->price; ?></td>
                         <td><a class='btn btn-info glyphicon-minus'
