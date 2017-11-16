@@ -31,6 +31,9 @@ $bookIds = $_SESSION['cart']['bookIds'];
                 </tr>
                 <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
                 <?php
+                if(!$bookIds) {
+                    echo '<div class="alert alert-danger" role="alert">This is a danger alert—check it out!</div>';
+                } else {
                 sort($bookIds);
                 foreach ($bookIds as $bookId) {
                     $book = new \App\Book($db, $bookId); ?>
@@ -48,7 +51,8 @@ $bookIds = $_SESSION['cart']['bookIds'];
                             </a>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }}?>
+
             </table>
         </div>
     </div>
