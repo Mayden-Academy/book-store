@@ -19,7 +19,12 @@ if (isset($_GET['id'])) {
 <body>
 
 <div class="stickyFooterExcluder">
-    <?php include "includes/header.php"; ?>
+
+    <?php include "includes/header.php";
+    if (empty($individualBook) || !$individualBook->id) {
+        echo '<div class="alert alert-danger" role="alert">Book does not exist</div>';
+    } else {
+    ?>
 
     <div class="container">
         <div class="row content">
@@ -49,6 +54,7 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </div>
+<?php } ?>
 <?php include "includes/footer.php" ?>
 </body>
 </html>
