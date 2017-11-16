@@ -16,7 +16,7 @@ class FilterBooks
     public function __construct(array $books)
     {
         $sortBooks = new SortBooks($books);
-        $this->books = $sortBooks->getSortedBooks();
+        $this->books = $sortBooks->getBooksPriceAscending();
     }
 
     /**

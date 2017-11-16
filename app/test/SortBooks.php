@@ -19,7 +19,7 @@ class SortBooksTest extends TestCase
         new \App\SortBooks('test');
     }
 
-    public function testGetSortedBooksSuccess()
+    public function testGetBooksPriceAscending()
     {
         $book = $this->createMock(\App\Book::class);
         $book->price = 35.34;
@@ -31,7 +31,7 @@ class SortBooksTest extends TestCase
         $book4->price = 48.79;
         $books = [$book, $book2, $book3, $book4];
         $sortBooks = new \App\SortBooks($books);
-        $generatedSortedBooks = $sortBooks->getSortedBooks();
+        $generatedSortedBooks = $sortBooks->getBooksPriceAscending();
         $expectedSortedBooks = [$book, $book4, $book3, $book2];
         $this->assertEquals($expectedSortedBooks, $generatedSortedBooks);
     }
