@@ -50,8 +50,6 @@ $priceRanges = $filter->generatePriceRanges();
             } ?>
         </div>
     </div>
-
-
     <div class="container">
         <div class="row">
             <div class="bookList col-xs-9">
@@ -71,7 +69,6 @@ $priceRanges = $filter->generatePriceRanges();
                 } ?>
             </div>
         </div>
-
         <?php include "includes/footer.php" ?>
 </body>
 </html>
