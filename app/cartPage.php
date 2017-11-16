@@ -16,14 +16,14 @@ $bookIds = $_SESSION['cart']['bookIds'];
 <body>
 <div class="stickyFooterExcluder">
 
-<?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="container text-center">
         <h1>Shopping Cart</h1>
     </div>
     <div class="container">
         <div class="row">
-            <table class="table col-xs-6">
+            <table class="table">
                 <tr>
                     <th>Book Title</th>
                     <th>Price</th>
@@ -36,13 +36,14 @@ $bookIds = $_SESSION['cart']['bookIds'];
                     $book = new \App\Book($db, $bookId); ?>
                     <tr>
                         <td>
-                            <a href='individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?></a>
+                            <a href='individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?>
+                            </a>
                         </td>
                         <td>
                             <?php echo $book->displayPrice(); ?>
                         </td>
                         <td><a class='btn btn-info glyphicon-minus'
-                               href='removeBook.php?id=<?php echo $book->id; ?>&price=<?php echo $book->price; ?>'></a>
+                               href='removeBook.php?id=<?php echo $book->id . '&price=' . $book->price; ?>'></a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -50,14 +51,16 @@ $bookIds = $_SESSION['cart']['bookIds'];
         </div>
     </div>
     <div class="container">
-        <h5>
-            <span class="col-xs-2">Books in cart:</span>
-            <span class="col-xs-1"><?php echo (empty($_SESSION)) ? "0" : $_SESSION["cart"]["totalBooks"]; ?></span>
-        </h5>
-        <h5>
-            <span class="col-xs-2">Total price:</span>
-            <span class="col-xs-1">£<?php echo (empty($_SESSION)) ? "0.00" : $_SESSION["cart"]["totalPrice"]; ?></span>
-        </h5>
+        <div class="row">
+            <h5>
+                <span class="col-xs-2">Books in cart:</span>
+                <span class="col-xs-1"><?php echo (empty($_SESSION)) ? "0" : $_SESSION["cart"]["totalBooks"]; ?></span>
+            </h5>
+            <h5>
+                <span class="col-xs-2">Total price:</span>
+                <span class="col-xs-1">£<?php echo (empty($_SESSION)) ? "0.00" : $_SESSION["cart"]["totalPrice"]; ?></span>
+            </h5>
+        </div>
     </div>
 </div>
 
