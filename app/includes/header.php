@@ -8,16 +8,13 @@
         </a>
         <div class="navbar-right">
             <div class="navbar-text totalBooks text-primary">
-                <!--                insert total books in cart-->
-                <p></p>
+                <p>Books: <?php echo (empty($_SESSION)) ? "0": $_SESSION["cart"]["totalBooks"];?></p>
             </div>
             <div class="navbar-text totalPrice text-primary">
-                <!--                insert total price in cart-->
-                <p></p>
+                <p>£<?php echo (empty($_SESSION)) ? "0.00": $_SESSION["cart"]["totalPrice"];?></p>
             </div>
         </div>
-        <!--            add the link to the cart to this anchor tag-->
-        <a class="navbar-right">
+        <a class="navbar-right" href="cartPage.php">
             <img src="images/trolley.svg" class="trolley"/>
         </a>
     </div>

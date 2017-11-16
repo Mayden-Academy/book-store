@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../vendor/autoload.php";
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
@@ -14,9 +15,10 @@ $books = $store->getAllBooks();
     <title>Book List</title>
 </head>
 <body>
-
 <div class="stickyFooterExcluder">
-    <?php include "includes/header.php" ?>
+
+<?php include "includes/header.php" ?>
+
     <div class="container">
         <div class="row">
             <div class="bookList col-xs-9 col-xs-offset-3">
@@ -38,7 +40,7 @@ $books = $store->getAllBooks();
         </div>
     </div>
 
-    <?php include "includes/footer.php" ?>
+<?php include "includes/footer.php" ?>
 </body>
 </html>
 
