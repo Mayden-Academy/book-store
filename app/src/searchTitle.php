@@ -2,16 +2,28 @@
 
 namespace App;
 
-
+/**
+ * SearchTitle is a DB entity with constructor to connect to DB and method that search the title of book
+ * @package App
+ */
 class SearchTitle
 {
     public $db;
 
+    /**
+     * SearchTitle constructor.
+     * @param \PDO $db
+     */
     public function __construct(\PDO $db)
     {
         $this->db = $db;
     }
 
+    /**
+     * method that search the titles inside DB
+     * @param $search
+     * @return array|bool
+     */
     public function performSearch($search) {
         try {
             $search = '%' . $search . '%';
