@@ -24,7 +24,7 @@ class Cart
     protected static function adjustTotalPrice(array $bookData, float $bookPrice)
     {
         $bookData['cart']['totalPrice'] += $bookPrice;
-        if(!count($bookData['cart'])) {
+        if($bookData['cart']['totalPrice'] < 0.01) {
             $bookData['cart']['totalPrice'] = 0;
         }
         return $bookData;
