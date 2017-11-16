@@ -22,7 +22,7 @@ $books = $store->getAllBooks();
             <div class="bookList col-xs-9 col-xs-offset-3">
                 <?php
                 if (!$books) {
-                    echo "Something goes wrong, please try again later";
+                    echo '<div class="alert alert-danger" role="alert">"Something goes wrong, please try again later"</div>';
                 } else {
                     foreach ($books as $book) { ?>
                         <div class='listedBook col-xs-4'>
