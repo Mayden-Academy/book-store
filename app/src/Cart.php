@@ -1,42 +1,50 @@
- <?php
+<?php
+namespace App;
 /**
- * Created by PhpStorm.
- * User: alexandrk
- * Date: 15/11/2017
- * Time: 09:51
+ *
  */
-
-
 
 class Cart
 {
-    public $totalPrice;
-    public $arrayOfBookIds;
-
-    public function __construct(Array $arrayOfBookIds, float $totalPrice)
+    public static function addBookToCart(array $bookData, int $bookId, float $bookPrice)
     {
-        $this->arrayOfBookIds = $arrayOfBookIds;
-        $this->totalPrice = $totalPrice;
+        var_dump('test1');
+        $bookData = self::ensureCartExists($bookData);
+        var_dump($bookData);
+        array_push($bookData['cart']['bookIds'], $bookId);
+        $bookData = self::adjustTotalPrice($bookData, $bookPrice);
+        $bookData['cart']['totalBooks']++;
+        return $bookData;
     }
 
-    public function addBookToCart($bookId, $bookPrice) {
-        array_push($this->arrayOfBookIds, $bookId);
-        $this->recalculateTotalPrice($bookPrice);
-        $cart["bookIds"] = $this->arrayOfBookIds;
-        $cart["totalPrice"] = $this->totalPrice;
-        $cart["totalBooks"] = sizeof($this->arrayOfBookIds);
-        return $cart;
+    public static function removeBookFromCart(array $bookData, int $bookId, float $bookPrice)
+    {
+
+       $bookData = self::ensureCartExists();
+        $bookToRemove = array_search($bookId, $bookData['cart']['bookIds']);
+        unset($bookData['cart']['bookIds'][$bookToRemove]);
+        $bookData = self::adjustTotalPrice($bookData, -$bookPrice);
+        $bookData['cart']['totalBooks']--;
+        return $bookData;
     }
-    public function removeBookFromCart($bookId, $bookPrice) {
-        $bookToRemove = array_search($bookId, $this->arrayOfBookIds);
-        unset($this->arrayOfBookIds[$bookToRemove]);
-        $this->recalculateTotalPrice(-($bookPrice));
-        $cart["id"] = $this->arrayOfBookIds;
-        $cart["cumulativePrice"] = $this->totalPrice;
-        $cart["totalBooks"] = sizeof($this->arrayOfBookIds);
-        return $cart;
+
+    protected static function adjustTotalPrice(array $bookData, float $bookPrice)
+    {  var_dump('test2');
+        $bookData['cart']['totalPrice'] += $bookPrice;
+        return $bookData;
     }
-    protected function recalculateTotalPrice(float $bookPrice) {
-        $this->totalPrice += $bookPrice;
+
+    protected static function ensureCartExists($bookData)
+    {   var_dump('test3');
+        if (!isset($bookData['cart'])) {
+            var_dump('test4');
+            $bookData['cart']= [];
+            $bookData['cart']['bookIds'] = [];
+            $bookData['cart']['totalPrice'] = 0;
+            $bookData['cart']['totalBooks'] = 0;
+        }
+        var_dump($bookData);
+        return $bookData;
     }
 }
+

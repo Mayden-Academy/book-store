@@ -2,6 +2,7 @@
 require "../vendor/autoload.php";
 $connection = new \App\DbConnector();
 $db=$connection->getDb();
+session_start();
 ?>
 
 <!DOCTYPE html>
