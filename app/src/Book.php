@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 /**
  * Book is a DB entity, with a constructor to create itself. The constructor has a default of null and can be passed an individual book id.
  * @package App

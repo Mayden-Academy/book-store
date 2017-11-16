@@ -8,6 +8,10 @@
         </a>
         <div class="navbar-right">
             <div class="navbar-text totalBooks text-primary">
+                <p>Books: <?php echo (empty($_SESSION)) ? "0": $_SESSION["cart"]["totalBooks"];?></p>
+            </div>
+            <div class="navbar-text totalPrice text-primary">
+                <p>£<?php echo (empty($_SESSION)) ? "0.00": $_SESSION["cart"]["totalPrice"];?></p>
                 <!--                insert total books in cart-->
                 <p></p>
             </div>
