@@ -1,9 +1,15 @@
 <?php
-session_start();
 require "../vendor/autoload.php";
+session_start();
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
-$books = $store->getAllBooks();
+
+if (isset($_GET['search'])) {
+    $searchTitle = new \App\SearchTitle($conn->getDb());
+    $books = $searchTitle->performSearch($_GET['search']);
+} else {
+    $books = $store->getAllBooks();
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +24,10 @@ $books = $store->getAllBooks();
 <div class="stickyFooterExcluder">
 
 <?php include "includes/header.php" ?>
-
+    <form class="searchForm col-xs-12" action="index.php" method="GET">
+        <input class="searchInput col-xs-8" name="search" type="text" placeholder="Type here...">
+        <input class="searchButton btn btn-default col-xs-4" type="submit">
+    </form>
     <div class="container">
         <div class="row">
             <div class="bookList col-xs-9 col-xs-offset-3">
