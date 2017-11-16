@@ -9,4 +9,11 @@ class BookTest extends TestCase {
         $book = new \App\book();
         $this->assertTrue(is_object($book));
     }
+
+    public function displayPrice() {
+        $book = new \App\book();
+        $book->price = 10;
+        $displayedPrice = $book->displayPrice();
+        $this->assertequals($displayedPrice, "£10");
+    }
 }
