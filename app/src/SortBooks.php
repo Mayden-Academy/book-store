@@ -19,7 +19,7 @@ class SortBooks
      * sorts the books, lowest to highest price
      * @return array- the sorted array of books
      */
-    public function getSortedBooks(): array
+    public function getBooksPriceAscending(): array
     {
         usort($this->books, [self::class, "comparePrices"]);
         return $this->books;
