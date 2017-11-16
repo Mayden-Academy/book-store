@@ -8,7 +8,7 @@ class DbConnectorTest extends TestCase
 {
     public function testConstructor() {
         $conn = new \App\DbConnector();
-        $db = $conn->db;
+        $db = $conn->getDb();
         $this->assertInstanceOf(\PDO::class, $db);
     }
 }
