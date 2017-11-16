@@ -3,13 +3,28 @@ require "../vendor/autoload.php";
 session_start();
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
+$search = "";
 
 if (isset($_GET['search'])) {
+    $search = 'search=' . $_GET['search'] . "&";
     $searchTitle = new \App\SearchTitle($conn->getDb());
     $books = $searchTitle->performSearch($_GET['search']);
 } else {
     $books = $store->getAllBooks();
 }
+
+if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
+    $search = "";
+    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
+    $bookPrices = $store->getAllBookPrices();
+    $sortBooks = new \App\SortBooks($bookPrices);
+} else {
+//    $books = $store->getAllBooks();
+    $sortBooks = new \App\SortBooks($books);
+}
+$bookPrices = $sortBooks->getBooksPriceAscending();
+$filter = new \App\FilterBooks($bookPrices);
+$priceRanges = $filter->generatePriceRanges();
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +36,38 @@ if (isset($_GET['search'])) {
     <title>Book List</title>
 </head>
 <body>
+
 <div class="stickyFooterExcluder">
 
 <?php include "includes/header.php" ?>
-    <form class="searchForm col-xs-12" action="index.php" method="GET">
-        <input class="searchInput col-xs-8" name="search" type="text" placeholder="Type here...">
-        <input class="searchButton btn btn-default col-xs-4" type="submit">
-    </form>
+
     <div class="container">
         <div class="row">
-            <div class="bookList col-xs-9 col-xs-offset-3">
+            <div class="searchAndFilterColumn col-xs-3">
+                <form class="searchForm col-xs-12" action="index.php" method="GET">
+                    <input class="searchInput col-xs-8" name="search" type="text" placeholder="Type here...">
+                    <button class="searchButton btn btn-default col-xs-4" type="submit">Search</button>
+                </form>
+                <div class="filterColumn">
+                    <h2>Filter by price</h2>
+                    <?php foreach ($priceRanges as $ranges) {
+                        if ((!empty($_GET) && !isset($_GET['search'])) && $_GET['min'] == $ranges['lowerBound']) { ?>
+                            <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
+                                £<?php echo $ranges['upperBound']; ?>
+                                <a type="button" href="index.php?<?php $search ?>" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </a>
+                            </p>
+                        <?php } else { ?>
+                            <p class="filterButton"><a
+                                        href="index.php?<?php echo $search ?>min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
+                                    £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
+                                </a></p>
+                        <?php }
+                    } ?>
+                </div>
+            </div>
+            <div class="bookList col-xs-9">
                 <?php
                 if (!$books) {
                     echo '<div class="alert alert-danger" role="alert">"Something goes wrong, please try again later"</div>';
@@ -48,8 +85,9 @@ if (isset($_GET['search'])) {
             </div>
         </div>
     </div>
+</div>
 
 <?php include "includes/footer.php" ?>
+
 </body>
 </html>
-
