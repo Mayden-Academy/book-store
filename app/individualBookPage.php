@@ -47,6 +47,9 @@ if (isset($_GET['id'])) {
             <div class="col-xs-2 col-xs-offset-1 individualBookPrice">
                 <h1><?php echo $individualBook->displayPrice(); ?></h1>
             </div>
+            <button class="col-xs-6 col-xs-offset-1 btn btn-success addToCart">
+                Add To Cart
+            </button>
         </div>
     </div>
 </div>
