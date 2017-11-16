@@ -1,16 +1,20 @@
 <?php
 require "../vendor/autoload.php";
 $connection = new \App\DbConnector();
-$store = new \App\Store($connection);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <link rel='stylesheet' href='css/lib/bootstrap.min.css' type='text/css' media='all'/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Shopping Cart</title>
 </head>
+<body>
 
+<div class="stickyFooterExcluder">
+
+<?php include 'includes/header.php'; ?>
 
 <div class="container text-center">
     <h1>
@@ -59,7 +63,7 @@ $store = new \App\Store($connection);
             <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
             <?php
                 foreach ([1,2,3,4,5]  as $bookId) {
-                    $book = new \App\Book(bookId);
+                    $book = new \App\Book($connection->getDb(), $bookId);
                     echo
                     " <tr>
                         <td>
@@ -102,5 +106,10 @@ $store = new \App\Store($connection);
     </div>
 
 </div>
+
+</div>
+
+<?php include 'includes/footer.php'; ?>
+
 </body>
 </html>
