@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
 <div class="stickyFooterExcluder">
 
     <?php include "includes/header.php";
-    if (!$individualBook) {
+    if (empty($individualBook) || !$individualBook->id) {
         echo '<div class="alert alert-danger" role="alert">Book does not exist</div>';
     } else {
     ?>
