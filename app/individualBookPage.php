@@ -1,7 +1,6 @@
 <?php
-session_start();
 require "../vendor/autoload.php";
-
+session_start();
 if (isset($_GET['id'])) {
     $conn = new \App\DbConnector();
     $individualBook = new \App\Book($conn->getDb(), $_GET['id']);
@@ -17,14 +16,13 @@ if (isset($_GET['id'])) {
     <title>View Book:<?php echo $individualBook->title; ?> </title>
 </head>
 <body>
-
 <div class="stickyFooterExcluder">
 
-    <?php include "includes/header.php";
+<?php include "includes/header.php";
     if (empty($individualBook) || !$individualBook->id) {
         echo '<div class="alert alert-danger" role="alert">Book does not exist</div>';
     } else {
-    ?>
+?>
 
     <div class="container">
         <div class="row content">
