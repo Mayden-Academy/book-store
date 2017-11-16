@@ -2,16 +2,20 @@
 require "../vendor/autoload.php";
 $connection = new \App\DbConnector();
 $db=$connection->getDb();
-$store = new \App\Store($db);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <link rel='stylesheet' href='css/lib/bootstrap.min.css' type='text/css' media='all'/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Shopping Cart</title>
 </head>
+<body>
 
+<div class="stickyFooterExcluder">
+
+<?php include 'includes/header.php'; ?>
 
 <div class="container text-center">
     <h1>
@@ -38,6 +42,7 @@ $store = new \App\Store($db);
                 sort($array);
                 foreach ($array  as $bookId) {
                     $book = new \App\Book($db, $bookId);
+
                     echo
                     " <tr>
                         <td>
@@ -80,5 +85,10 @@ $store = new \App\Store($db);
     </div>
 
 </div>
+
+</div>
+
+<?php include 'includes/footer.php'; ?>
+
 </body>
 </html>
