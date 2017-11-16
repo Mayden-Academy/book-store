@@ -6,7 +6,7 @@
  * Time: 10:42
  */
 
-require_once "cart.php";
+require_once "src/Cart.php";
 
 session_start();
 if(empty($_SESSION["cart"])) {

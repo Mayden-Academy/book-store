@@ -1,7 +1,8 @@
 <?php
 require "../vendor/autoload.php";
 $connection = new \App\DbConnector();
-$store = new \App\Store($connection);
+$db=$connection->getDb();
+$store = new \App\Store($db);
 ?>
 
 <!DOCTYPE html>
@@ -31,35 +32,12 @@ $store = new \App\Store($connection);
                     Remove from cart
                 </th>
             </tr>
-
-            <tr>
-                <td>
-                    <a href="#">Don Quijote (1st edition) and then some text and text and text and text</a>
-                </td>
-                <td>
-                    £375.00
-                </td>
-                <td>
-                    <button class="btn btn-info glyphicon-minus">
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Don Quijote (1st edition)</a>
-                </td>
-                <td>
-                    £375.00
-                </td>
-                <td>
-                    <button class="btn btn-info glyphicon-minus">
-                    </button>
-                </td>
-            </tr>
             <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
             <?php
-                foreach ([1,2,3,4,5]  as $bookId) {
-                    $book = new \App\Book(bookId);
+                $array = [1,2,3,4,5,2];
+                sort($array);
+                foreach ($array  as $bookId) {
+                    $book = new \App\Book($db, $bookId);
                     echo
                     " <tr>
                         <td>
