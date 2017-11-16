@@ -3,13 +3,14 @@ session_start();
 require "../vendor/autoload.php";
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
-$books = $store->getAllBooks();
-$filter = new \App\FilterBooks($books);
+$bookPrices = $store->getAllBookPrices();
+$filter = new \App\FilterBooks($bookPrices);
 $priceRanges = $filter->generatePriceRanges();
 if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
     $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
-}
-?>
+} else {
+    $books = $store->getAllBooks();
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">
