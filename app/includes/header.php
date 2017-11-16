@@ -8,10 +8,12 @@
         </a>
         <div class="navbar-right">
             <div class="navbar-text totalBooks text-primary">
-                <p>11 items</p>
+                <!--                insert total books in cart-->
+                <p></p>
             </div>
             <div class="navbar-text totalPrice text-primary">
-                <p>£127.60</p>
+                <!--                insert total price in cart-->
+                <p></p>
             </div>
         </div>
         <!--            add the link to the cart to this anchor tag-->
