@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 
 require "../src/SortBooks.php";
+require "../src/Book.php";
 
 class SortBooksTest extends TestCase
 {
