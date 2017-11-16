@@ -4,7 +4,7 @@ session_start();
 $connection = new \App\DbConnector();
 $db = $connection->getDb();
 $bookIds = [];
-if(!empty($_SESSION['cart']['bookIds'])) {
+if (!empty($_SESSION['cart']['bookIds'])) {
     $bookIds = $_SESSION['cart']['bookIds'];
 }
 ?>
@@ -19,7 +19,7 @@ if(!empty($_SESSION['cart']['bookIds'])) {
 <body>
 <div class="stickyFooterExcluder">
 
-<?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="container text-center">
         <h1>Shopping Cart</h1>
@@ -34,7 +34,7 @@ if(!empty($_SESSION['cart']['bookIds'])) {
                 </tr>
                 <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
                 <?php
-                if(empty($bookIds)) {
+                if (empty($bookIds)) {
                     echo '<div class="alert alert-info" role="alert">No books selected</div>';
                 } else {
                     sort($bookIds);
@@ -54,7 +54,8 @@ if(!empty($_SESSION['cart']['bookIds'])) {
                                 </a>
                             </td>
                         </tr>
-                <?php }}?>
+                    <?php }
+                } ?>
 
             </table>
         </div>
