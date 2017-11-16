@@ -8,10 +8,10 @@
         </a>
         <div class="navbar-right">
             <div class="navbar-text totalBooks text-primary">
-                <p>11 items</p>
+                <p>Books: <?php echo (empty($_SESSION)) ? "0": $_SESSION["cart"]["totalBooks"];?></p>
             </div>
             <div class="navbar-text totalPrice text-primary">
-                <p>£127.60</p>
+                <p>£<?php echo (empty($_SESSION)) ? "0.00": $_SESSION["cart"]["totalPrice"];?></p>
             </div>
         </div>
         <!--            add the link to the cart to this anchor tag-->
