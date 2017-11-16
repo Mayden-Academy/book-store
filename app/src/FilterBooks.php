@@ -11,7 +11,7 @@ class FilterBooks
 
     /**
      * FilterBooks constructor.
-     * @param array $books
+     * @param array $books array of Book objects
      */
     public function __construct(array $books)
     {
