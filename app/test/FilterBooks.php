@@ -3,6 +3,8 @@
 use PHPUnit\Framework\TestCase;
 
 require "../src/FilterBooks.php";
+require "../src/SortBooks.php";
+require "../src/Book.php";
 
 class FilterBooksTest extends TestCase
 {
@@ -35,9 +37,3 @@ class FilterBooksTest extends TestCase
         $this->assertEquals($expectedRanges, $generatedRanges);
     }
 }
-
-
-
-
-
-
