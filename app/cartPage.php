@@ -3,9 +3,9 @@ require "../vendor/autoload.php";
 session_start();
 $connection = new \App\DbConnector();
 $db = $connection->getDb();
-$bookIds = $_SESSION['cart']['bookIds'];
-if(empty($_SESSION['cart']['bookIds'])) {
-    $bookIds = [];
+$bookIds = [];
+if(!empty($_SESSION['cart']['bookIds'])) {
+    $bookIds = $_SESSION['cart']['bookIds'];
 }
 ?>
 
