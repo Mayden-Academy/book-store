@@ -1,8 +1,9 @@
 <?php
 require "../vendor/autoload.php";
+session_start();
 $connection = new \App\DbConnector();
 $db = $connection->getDb();
-session_start();
+$bookIds = $_SESSION['cart']['bookIds'];
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@ session_start();
 <body>
 <div class="stickyFooterExcluder">
 
-<?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="container text-center">
         <h1>Shopping Cart</h1>
@@ -30,16 +31,16 @@ session_start();
                 </tr>
                 <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
                 <?php
-                $booksInSession = $_SESSION["cart"]["bookIds"];
-                sort($booksInSession);
-                foreach ($booksInSession as $bookId) {
-                    $book = new \App\Book($db, $bookId);
-                    ?>
+                sort($bookIds);
+                foreach ($bookIds as $bookId) {
+                    $book = new \App\Book($db, $bookId); ?>
                     <tr>
                         <td>
-                            <a href='../individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?> </a>
+                            <a href='individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?></a>
                         </td>
-                        <td>£<?php echo $book->price; ?></td>
+                        <td>
+                            <?php echo $book->displayPrice(); ?>
+                        </td>
                         <td><a class='btn btn-info glyphicon-minus'
                                href='removeBook.php?id=<?php echo $book->id; ?>&price=<?php echo $book->price; ?>'></a>
                         </td>
