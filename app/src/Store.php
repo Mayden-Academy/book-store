@@ -37,4 +37,21 @@ class Store
         }
 
     }
+
+    /**
+     * gets the data from the DataBase for individual book given where the price range is between min and max values
+     * @param int $min minimum price of a book
+     * @param float $max maximum price of a book
+     * @return array of Book objects within specified price range
+     */
+    public function getBooksWithinRange(int $min,float $max): array
+    {
+        $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books` WHERE `price` >= :min AND `price` <= :max");
+        $query->bindParam(":min", $min);
+        $query->bindParam(":max", $max);
+        $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
+        $query->execute();
+        return $query->fetchAll();
+
+    }
 }
