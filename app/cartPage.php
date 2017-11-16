@@ -42,8 +42,10 @@ $bookIds = $_SESSION['cart']['bookIds'];
                         <td>
                             <?php echo $book->displayPrice(); ?>
                         </td>
-                        <td><a class='btn btn-info glyphicon-minus'
-                               href='removeBook.php?id=<?php echo $book->id . '&price=' . $book->price; ?>'></a>
+                        <td>
+                            <a class='btn btn-info glyphicon-minus'
+                               href='removeBook.php?id=<?php echo $book->id . '&price=' . $book->price; ?>'>
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>
