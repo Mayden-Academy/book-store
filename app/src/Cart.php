@@ -3,37 +3,42 @@ namespace App;
 
 class Cart
 {
-    public $totalPrice;
-    public $arrayOfBookIds;
-
-    public function __construct(Array $arrayOfBookIds, float $totalPrice)
+    public static function addBookToCart(array $bookData, int $bookId, float $bookPrice)
     {
-        $this->arrayOfBookIds = $arrayOfBookIds;
-        $this->totalPrice = $totalPrice;
+        $bookData = self::ensureCartExists($bookData);
+        array_push($bookData['cart']['bookIds'], $bookId);
+        $bookData = self::adjustTotalPrice($bookData, $bookPrice);
+        $bookData['cart']['totalBooks']++;
+        return $bookData;
     }
 
-    public function addBookToCart($bookId, $bookPrice) {
-        array_push($this->arrayOfBookIds, $bookId);
-        $this->recalculateTotalPrice($bookPrice);
-        $cart["bookIds"] = $this->arrayOfBookIds;
-        $cart["totalPrice"] = $this->totalPrice;
-        $cart["totalBooks"] = sizeof($this->arrayOfBookIds);
-        return $cart;
+    public static function removeBookFromCart(array $bookData, int $bookId, float $bookPrice)
+    {
+        $bookData = self::ensureCartExists($bookData);
+        $bookToRemove = array_search($bookId, $bookData['cart']['bookIds']);
+        unset($bookData['cart']['bookIds'][$bookToRemove]);
+        $bookData = self::adjustTotalPrice($bookData, -$bookPrice);
+        $bookData['cart']['totalBooks']--;
+        return $bookData;
     }
-    public function removeBookFromCart($bookId, $bookPrice) {
-        $bookToRemove = array_search($bookId, $this->arrayOfBookIds);
-        unset($this->arrayOfBookIds[$bookToRemove]);
-        $this->recalculateTotalPrice(-($bookPrice));
-        $cart["bookIds"] = $this->arrayOfBookIds;
-        $cart["totalPrice"] = $this->totalPrice;
-        $cart["totalBooks"] = sizeof($this->arrayOfBookIds);
-        return $cart;
-    }
-    protected function recalculateTotalPrice(float $bookPrice) {
-        $this->totalPrice += $bookPrice;
-//        fixing float math rounding
-        if(!count($this->arrayOfBookIds)) {
-            $this->totalPrice = 0;
+    protected static function adjustTotalPrice(array $bookData, float $bookPrice)
+    {
+        $bookData['cart']['totalPrice'] += $bookPrice;
+        if(!count($bookData['cart'])) {
+            $bookData['cart']['totalPrice'] = 0;
         }
+        return $bookData;
+    }
+
+    protected static function ensureCartExists($bookData)
+    {
+        if (!isset($bookData['cart'])) {
+            $bookData['cart']= [];
+            $bookData['cart']['bookIds'] = [];
+            $bookData['cart']['totalPrice'] = 0;
+            $bookData['cart']['totalBooks'] = 0;
+        }
+        return $bookData;
     }
 }
+

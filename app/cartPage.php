@@ -1,8 +1,8 @@
 <?php
-session_start();
 require "../vendor/autoload.php";
 $connection = new \App\DbConnector();
 $db = $connection->getDb();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +31,9 @@ $db = $connection->getDb();
                 </tr>
                 <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
                 <?php
-                $array = $_SESSION["cart"]["bookIds"];
-                sort($array);
-                foreach ($array as $bookId) {
+                $booksInSession = $_SESSION["cart"]["bookIds"];
+                sort($booksInSession);
+                foreach ($booksInSession as $bookId) {
                     $book = new \App\Book($db, $bookId);
                     ?>
                     <tr>
