@@ -1,6 +1,11 @@
 <?php
 namespace App;
 
+
+/**
+ * Class Cart
+ * @package App
+ */
 class Cart
 {
     public static function addBookToCart(array $bookData, int $bookId, float $bookPrice)
