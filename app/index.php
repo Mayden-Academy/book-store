@@ -15,7 +15,6 @@ $books = $store->getAllBooks();
     <title>Book List</title>
 </head>
 <body>
-
 <div class="stickyFooterExcluder">
 
 <?php include "includes/header.php" ?>
