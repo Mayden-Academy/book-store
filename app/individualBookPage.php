@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../vendor/autoload.php";
 
 if (isset($_GET['id'])) {
@@ -41,6 +42,9 @@ if (isset($_GET['id'])) {
             </div>
             <div class="col-xs-2 col-xs-offset-1 individualBookPrice">
                 <h1><?php echo $individualBook->displayPrice(); ?></h1>
+            </div>
+            <div class="col-xs-6 col-xs-offset-1 individualBookAddToCart">
+                <h1><a href="emptypage.php?id=<?php echo $individualBook->id?>&price=<?php echo $individualBook->price?>">Add To Cart</a></h1>
             </div>
         </div>
     </div>
