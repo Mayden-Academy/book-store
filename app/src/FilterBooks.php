@@ -15,18 +15,19 @@ class FilterBooks
      */
     public function __construct(array $books)
     {
-        $this->books = $books;
+        $sortBooks = new SortBooks($books);
+        $this->books = $sortBooks->getSortedBooks();
     }
 
     /**
      * rounds the highest price up, to give the upper limit of the search.
      *
-     * @param array $books.
+     * @param array $books .
      * @return int - The upper limit of search
      */
     private function getUpperBound(array $books): int
     {
-        return ceil(end($books)->price / self::STEPSIZE) * self::STEPSIZE;
+        return (floor(end($books)->price / self::STEPSIZE) + 1) * self::STEPSIZE;
     }
 
     /**
@@ -77,7 +78,7 @@ class FilterBooks
     }
 
     /**
-     *  returns books with price higher than or equal to midpoint
+     * returns books with price higher than or equal to midpoint
      * @param array $books
      * @param int $midPoint
      * @return array - the upper half of books
@@ -90,7 +91,7 @@ class FilterBooks
     }
 
     /**
-     * if only one book is found in array stop searching, if more continue searching
+     * if only one book is found, stop looping. If more than one book is found continue looping.
      *
      * @param array $books
      */
@@ -104,13 +105,13 @@ class FilterBooks
     }
 
     /**
-     * find the appropriate price range for the book(s) found and stores it.
+     * finds the appropriate price range for the book(s) found and stores it.
      *
      * @param array $books
      */
     private function endSearch(array $books)
     {
-        $this->storePriceRange($this->getUpperBound($books), $this->getLowerBound($books));
+        $this->storePriceRange($this->getLowerBound($books), $this->getUpperBound($books));
     }
 
     /**
@@ -151,7 +152,7 @@ class FilterBooks
      *
      * @return array -  price ranges
      */
-    public function generatePriceRanges():array
+    public function generatePriceRanges(): array
     {
         $this->search($this->books);
         return $this->priceRanges;

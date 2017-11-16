@@ -25,32 +25,10 @@ $books = $store->getAllBooks();
                     <input class="searchInput col-xs-8" type="text" placeholder="Type here...">
                     <button class="searchButton btn btn-default col-xs-4" type="button">Search</button>
                 </form>
-
-
                 <?php
-                function cmp($a, $b) {
-                    return $a->price > $b->price;
-                }
-                usort($books, "cmp");
-
                 $filter = new \App\FilterBooks($books);
                 var_dump($filter->generatePriceRanges());
-
                 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div class="filterColumn">
                     <h2>Filter by price</h2>
 
