@@ -20,21 +20,25 @@ $books = $store->getAllBooks();
     <div class="container">
         <div class="row">
             <div class="bookList col-xs-9 col-xs-offset-3">
-                <?php foreach ($books as $book) { ?>
-                    <div class='listedBook col-xs-4'>
-                        <?php //var_dump($book); ?>
-                        <a href='individualBookPage.php?id=<?php echo $book->id; ?>'>
-                            <img class='bookImage' src='<?php echo $book->image; ?>'>
-                            <h4 class='title'><?php echo $book->title; ?></h4>
-                            <h4 class='price'><?php echo $book->displayPrice(); ?></h4>
-                        </a>
-                  </div>
-                <?php } ?>
+                <?php
+                if (!$books) {
+                    echo "Something goes wrong, please try again later";
+                } else {
+                    foreach ($books as $book) { ?>
+                        <div class='listedBook col-xs-4'>
+                            <a href='individualBookPage.php?id=<?php echo $book->id; ?>'>
+                                <img class='bookImage' src='<?php echo $book->image; ?>'>
+                                <h4 class='title'><?php echo $book->title; ?></h4>
+                                <h4 class='price'><?php echo $book->displayPrice(); ?></h4>
+                            </a>
+                        </div>
+                    <?php }
+                } ?>
             </div>
         </div>
     </div>
 
-<?php include "includes/footer.php" ?>
+    <?php include "includes/footer.php" ?>
 </body>
 </html>
 

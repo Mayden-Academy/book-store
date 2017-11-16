@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>View Book:<?php echo $individualBook->title ?> </title>
+    <title>View Book:<?php echo $individualBook->title; ?> </title>
 </head>
 <body>
 
@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
     <?php include "includes/header.php"; ?>
 
     <div class="container">
-        <div class="row">
+        <div class="row content">
             <div class="col-xs-5 individualBookImage">
                 <img src="<?php echo $individualBook->image; ?>"/>
             </div>
@@ -35,7 +35,6 @@ if (isset($_GET['id'])) {
                 <p><?php echo $individualBook->description; ?></p>
             </div>
         </div>
-        <br>
         <div class="row">
             <div class="col-xs-2 individualBookPrice">
                 <h1>Price:</h1>
@@ -43,9 +42,6 @@ if (isset($_GET['id'])) {
             <div class="col-xs-2 col-xs-offset-1 individualBookPrice">
                 <h1><?php echo $individualBook->displayPrice(); ?></h1>
             </div>
-            <button class="col-xs-6 col-xs-offset-1 .btn btn-success">
-                <h1>Add To Cart</h1>
-            </button>
         </div>
     </div>
 </div>
