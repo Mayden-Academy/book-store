@@ -64,7 +64,9 @@ a:hover {
     color: #ffffff;
     font-size: 12px;
 }
-
+.content {
+    margin: 20px -15px;
+}
 /*individual book*/
 .individualBookImage {
     height: 500px;

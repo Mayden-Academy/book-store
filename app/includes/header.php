@@ -3,7 +3,7 @@
         <div class="navbar-brand text-primary">
             BMcB
         </div>
-        <a class="btn navbar-btn btn-primary" href="../index.php">
+        <a class="btn navbar-btn btn-primary" href="index.php">
             Home
         </a>
         <div class="navbar-right">

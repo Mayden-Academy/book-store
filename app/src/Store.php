@@ -4,6 +4,10 @@ namespace App;
 
 Use App\Book as Book;
 
+/**
+ * Class Store
+ * @package App - contain all data about books from DataBase
+ */
 class Store
 {
     private $db;
@@ -23,9 +27,14 @@ class Store
      */
     public function getAllBooks()
     {
-        $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
-        $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
-        $query->execute();
-        return $books = $query->fetchAll();
+        try {
+            $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
+            $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
+            $query->execute();
+            return $query->fetchAll();
+        } catch(\Exception $e) {
+            return FALSE;
+        }
+
     }
 }
