@@ -30,7 +30,7 @@ $priceRanges = $filter->generatePriceRanges();
                     <?php foreach ($priceRanges as $ranges) {
 
                         if (!empty($_GET) && $_GET['min'] == $ranges['lowerBound']) { ?>
-                            <p class="filterButton active"><?php echo $ranges['lowerBound']; ?> - <?php echo $ranges['upperBound']; ?>
+                            <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
                                 <a type="button" href="index.php" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </a>
@@ -38,7 +38,7 @@ $priceRanges = $filter->generatePriceRanges();
 
                       <?php  } else { ?>
                         <p class="filterButton"><a href="index.php?min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
-                                <?php echo $ranges['lowerBound']; ?> - <?php echo $ranges['upperBound']; ?>
+                                £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
                             </a></p>
                     <?php } }?>
                 </div>
