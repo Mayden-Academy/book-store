@@ -32,7 +32,7 @@ $bookIds = $_SESSION['cart']['bookIds'];
                 <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
                 <?php
                 if(!$bookIds) {
-                    echo '<div class="alert alert-primary" role="alert">No books selected</div>';
+                    echo '<div class="alert alert-info" role="alert">No books selected</div>';
                 } else {
                 sort($bookIds);
                 foreach ($bookIds as $bookId) {
