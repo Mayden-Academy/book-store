@@ -3,13 +3,12 @@ session_start();
 require "../vendor/autoload.php";
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
-if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
-    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
-} else {
-    $books = $store->getAllBooks();
-}
+$books = $store->getAllBooks();
 $filter = new \App\FilterBooks($books);
 $priceRanges = $filter->generatePriceRanges();
+if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
+    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +29,7 @@ $priceRanges = $filter->generatePriceRanges();
         </form>
         <div class="filterColumn">
             <h2>Filter by price</h2>
-
             <?php foreach ($priceRanges as $ranges) {
-
                 if (!empty($_GET) && $_GET['min'] == $ranges['lowerBound']) { ?>
                     <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
                         £<?php echo $ranges['upperBound']; ?>
@@ -40,7 +37,6 @@ $priceRanges = $filter->generatePriceRanges();
                             <span aria-hidden="true">&times;</span>
                         </a>
                     </p>
-
                 <?php } else { ?>
                     <p class="filterButton"><a
                                 href="index.php?min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
