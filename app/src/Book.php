@@ -20,9 +20,7 @@ class Book
      */
     public function __construct(\PDO $db = null, int $id = null)
     {
-        if (isset($db)) {
-            $this->db = $db;
-        }
+        $this->db = $db;
         if (isset($id)) {
             $query = $this->db->prepare("SELECT `id`, `title`, `price`, `description`, `image` FROM `books` WHERE `id` = :id;");
             $query->bindParam(":id", $id, \PDO::PARAM_INT);
