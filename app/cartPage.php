@@ -35,15 +35,17 @@ $db = $connection->getDb();
                 sort($array);
                 foreach ($array as $bookId) {
                     $book = new \App\Book($db, $bookId);
-
-                    echo
-                    "<tr>
-                        <td><a href='../individualBookPage.php?id=$book->id'> $book->title</a></td>
-                        <td>£$book->price</td>
-                        <td><a class='btn btn-info glyphicon-minus' href='#'></a></td>
-                     </tr>";
-                }
-                ?>
+                    ?>
+                    <tr>
+                        <td>
+                            <a href="../individualBookPage.php?id=<?php echo $book->id; ?>"> <?php echo $book->title; ?> </a>
+                        </td>
+                        <td>£<?php echo $book->price; ?></td>
+                        <td><a class='btn btn-info glyphicon-minus'
+                               href='removeBook.php?id=<?php echo $book->id; ?>&price=<?php echo $book->price; ?>'></a>
+                        </td>
+                    </tr>
+                <?php } ?>
             </table>
         </div>
     </div>

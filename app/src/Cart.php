@@ -1,12 +1,5 @@
- <?php
-/**
- * Created by PhpStorm.
- * User: alexandrk
- * Date: 15/11/2017
- * Time: 09:51
- */
-
-
+<?php
+namespace App;
 
 class Cart
 {
@@ -31,12 +24,16 @@ class Cart
         $bookToRemove = array_search($bookId, $this->arrayOfBookIds);
         unset($this->arrayOfBookIds[$bookToRemove]);
         $this->recalculateTotalPrice(-($bookPrice));
-        $cart["id"] = $this->arrayOfBookIds;
-        $cart["cumulativePrice"] = $this->totalPrice;
+        $cart["bookIds"] = $this->arrayOfBookIds;
+        $cart["totalPrice"] = $this->totalPrice;
         $cart["totalBooks"] = sizeof($this->arrayOfBookIds);
         return $cart;
     }
     protected function recalculateTotalPrice(float $bookPrice) {
         $this->totalPrice += $bookPrice;
+//        fixing float math rounding
+        if(!count($this->arrayOfBookIds)) {
+            $this->totalPrice = 0;
+        }
     }
 }
