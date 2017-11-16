@@ -61,7 +61,7 @@ class Store
      * @param float $max maximum price of a book
      * @return array of Book objects within specified price range
      */
-    public function getBooksWithinRange(int $min,float $max): array
+    public function getBooksWithinRange(float $min,float $max): array
     {
         try {
             $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books` WHERE `price` >= :min AND `price` <= :max");
