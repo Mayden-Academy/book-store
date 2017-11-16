@@ -33,48 +33,9 @@ $books = $store->getAllBooks();
                 }
                 usort($books, "cmp");
 
-                function getRanges($books, &$result) {
-                    $max = ceil(end($books)->price / 10) * 10;
-                    $min = floor($books[0]->price /10) * 10;
-                    $mid = ceil(($max + $min) / 20) * 10;
+                $filter = new \App\FilterBooks($books);
+                var_dump($filter->generatePriceRanges());
 
-                    if ($max - $min == 10) {
-                        $result[] = ['min' => $min, 'max' => $max - 0.01];
-                        return;
-                    }
-
-                    $array1 = array_filter($books, function ($book) use($mid) {
-                        return $book->price < $mid;
-                    });
-                    $array1 = array_values($array1);
-
-
-                    $array2 = array_filter($books, function ($book) use($mid) {
-                        return $book->price >= $mid;
-                    });
-                    $array2 = array_values($array2);
-
-                    if (count($array1) ==1) {
-                        $arr1max = ceil($array1[0]->price / 10) * 10;
-                        $arr1min = floor($array1[0]->price /10) * 10;
-                        $result[] = ['min' => $arr1min, 'max' => $arr1max - 0.01];
-                    } else if (count($array1) > 1) {
-                        getRanges($array1, $result);
-                    }
-
-                    if (count($array2) ==1) {
-                        $arr2max = ceil($array2[0]->price / 10) * 10;
-                        $arr2min = floor($array2[0]->price /10) * 10;
-                        $result[] = ['min' => $arr2min, 'max' => $arr2max - 0.01];
-                    } else if (count($array2) > 1) {
-                        getRanges($array2, $result);
-                    }
-                }
-
-                $result = [];
-                getRanges($books, $result);
-                var_dump($result);
-                
                 ?>
 
 
