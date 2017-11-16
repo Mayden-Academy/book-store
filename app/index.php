@@ -27,34 +27,37 @@ $priceRanges = $filter->generatePriceRanges();
     <title>Book List</title>
 </head>
 <body>
-<?php include "includes/header.php" ?>
+
 <div class="stickyFooterExcluder">
-    <div class="searchAndFilterColumn col-xs-3">
-        <form class="searchForm col-xs-12">
-            <input class="searchInput col-xs-8" type="text" placeholder="Type here...">
-            <button class="searchButton btn btn-default col-xs-4" type="button">Search</button>
-        </form>
-        <div class="filterColumn">
-            <h2>Filter by price</h2>
-            <?php foreach ($priceRanges as $ranges) {
-                if (!empty($_GET) && $_GET['min'] == $ranges['lowerBound']) { ?>
-                    <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
-                        £<?php echo $ranges['upperBound']; ?>
-                        <a type="button" href="index.php" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </a>
-                    </p>
-                <?php } else { ?>
-                    <p class="filterButton"><a
-                                href="index.php?min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
-                            £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
-                        </a></p>
-                <?php }
-            } ?>
-        </div>
-    </div>
+
+    <?php include "includes/header.php" ?>
+
     <div class="container">
         <div class="row">
+            <div class="searchAndFilterColumn col-xs-3">
+                <form class="searchForm col-xs-12">
+                    <input class="searchInput col-xs-8" type="text" placeholder="Type here...">
+                    <button class="searchButton btn btn-default col-xs-4" type="button">Search</button>
+                </form>
+                <div class="filterColumn">
+                    <h2>Filter by price</h2>
+                    <?php foreach ($priceRanges as $ranges) {
+                        if (!empty($_GET) && $_GET['min'] == $ranges['lowerBound']) { ?>
+                            <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
+                                £<?php echo $ranges['upperBound']; ?>
+                                <a type="button" href="index.php" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </a>
+                            </p>
+                        <?php } else { ?>
+                            <p class="filterButton"><a
+                                        href="index.php?min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
+                                    £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
+                                </a></p>
+                        <?php }
+                    } ?>
+                </div>
+            </div>
             <div class="bookList col-xs-9">
                 <?php
                 if (!$books) {
@@ -72,7 +75,11 @@ $priceRanges = $filter->generatePriceRanges();
                 } ?>
             </div>
         </div>
-        <?php include "includes/footer.php" ?>
+    </div>
+</div>
+
+<?php include "includes/footer.php" ?>
+
 </body>
 </html>
 

@@ -97,12 +97,14 @@ a:hover {
     margin: 0;
     line-height: 75px;
 }
+
 .addToCart {
     height: 79px;
     font-size: 30px;
     line-height: 65px;
     transition: .3s;
 }
+
 /*footer*/
 footer {
     position: relative;
