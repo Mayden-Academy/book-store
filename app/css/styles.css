@@ -1,0 +1,109 @@
+body {
+    min-width: 970px;
+}
+
+/*nav*/
+.trolley {
+    height: 50px;
+    margin: 5px;
+}
+
+/*book list*/
+h1 {
+    margin: 0;
+    padding: 20px 0;
+}
+
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 30px;
+}
+
+.bookImage {
+    max-width: 100%;
+}
+
+/*filter column*/
+.searchAndFilterColumn {
+    padding: 0;
+}
+
+.filterColumn {
+    margin-top: 50px;
+}
+
+/*search bar*/
+.searchButton {
+    padding: 5px 5px;
+}
+
+.searchInput {
+    height: 32px;
+    outline: 0;
+}
+
+.searchForm {
+    padding: 0;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
+/*return to home*/
+.returnToHome {
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
+.returnToHome a {
+    color: #ffffff;
+    font-size: 12px;
+}
+.content {
+    margin: 20px -15px;
+}
+/*individual book*/
+.individualBookImage {
+    height: 500px;
+}
+
+.individualBookImage img {
+    width: 100%;
+    margin: 20% auto;
+}
+
+.individualBookTitle {
+    height: 75px;
+}
+
+.individualBookDescription {
+    height: 350px;
+}
+
+.individualBookDescriptionHeader h3 {
+    margin: 0;
+    line-height: 75px;
+}
+
+/*footer*/
+footer {
+    position: relative;
+    bottom: 0;
+    height: 30px;
+    font-size: 42px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.stickyFooterExcluder {
+    min-height: calc(100vh - 80px);
+}
+
