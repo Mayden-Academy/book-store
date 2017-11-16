@@ -61,14 +61,19 @@ if(!empty($_SESSION['cart']['bookIds'])) {
     </div>
     <div class="container">
         <div class="row">
-            <h5>
-                <span class="col-xs-2">Books in cart:</span>
-                <span class="col-xs-1"><?php echo (empty($_SESSION)) ? "0" : $_SESSION["cart"]["totalBooks"]; ?></span>
-            </h5>
-            <h5>
-                <span class="col-xs-2">Total price:</span>
-                <span class="col-xs-1">£<?php echo (empty($_SESSION)) ? "0.00" : $_SESSION["cart"]["totalPrice"]; ?></span>
-            </h5>
+
+            <div class="col-xs-2">
+                <h5>Books in cart:</h5>
+            </div>
+            <div class="col-xs-1">
+                <h5><?php echo (empty($_SESSION)) ? "0" : $_SESSION["cart"]["totalBooks"]; ?></h5>
+            </div>
+            <div class="col-xs-2">
+                <h5>Total price:</h5>
+            </div>
+            <div class="col-xs-1">
+                <h5>£<?php echo (empty($_SESSION)) ? "0.00" : $_SESSION["cart"]["totalPrice"]; ?></h5>
+            </div>
         </div>
     </div>
 </div>
