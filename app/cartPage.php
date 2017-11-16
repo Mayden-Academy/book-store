@@ -15,7 +15,7 @@ session_start();
 <body>
 <div class="stickyFooterExcluder">
 
-    <?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
     <div class="container text-center">
         <h1>Shopping Cart</h1>
