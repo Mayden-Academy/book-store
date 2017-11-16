@@ -4,6 +4,9 @@ session_start();
 $connection = new \App\DbConnector();
 $db = $connection->getDb();
 $bookIds = $_SESSION['cart']['bookIds'];
+if(empty($_SESSION['cart']['bookIds'])) {
+    $bookIds = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,26 +34,26 @@ $bookIds = $_SESSION['cart']['bookIds'];
                 </tr>
                 <!-- takes the array of book IDs stored in the session and passes them into the Book class to then output title and price into html-->
                 <?php
-                if(!$bookIds) {
+                if(empty($bookIds)) {
                     echo '<div class="alert alert-info" role="alert">No books selected</div>';
                 } else {
-                sort($bookIds);
-                foreach ($bookIds as $bookId) {
-                    $book = new \App\Book($db, $bookId); ?>
-                    <tr>
-                        <td>
-                            <a href='individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?>
-                            </a>
-                        </td>
-                        <td>
-                            <?php echo $book->displayPrice(); ?>
-                        </td>
-                        <td>
-                            <a class='btn btn-info glyphicon-minus'
-                               href='removeBook.php?id=<?php echo $book->id . '&price=' . $book->price; ?>'>
-                            </a>
-                        </td>
-                    </tr>
+                    sort($bookIds);
+                    foreach ($bookIds as $bookId) {
+                        $book = new \App\Book($db, $bookId); ?>
+                        <tr>
+                            <td>
+                                <a href='individualBookPage.php?id=<?php echo $book->id; ?>'> <?php echo $book->title; ?>
+                                </a>
+                            </td>
+                            <td>
+                                <?php echo $book->displayPrice(); ?>
+                            </td>
+                            <td>
+                                <a class='btn btn-info glyphicon-minus'
+                                   href='removeBook.php?id=<?php echo $book->id . '&price=' . $book->price; ?>'>
+                                </a>
+                            </td>
+                        </tr>
                 <?php }}?>
 
             </table>
