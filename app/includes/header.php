@@ -12,6 +12,12 @@
             </div>
             <div class="navbar-text totalPrice text-primary">
                 <p>£<?php echo (empty($_SESSION)) ? "0.00": $_SESSION["cart"]["totalPrice"];?></p>
+                <!--                insert total books in cart-->
+                <p></p>
+            </div>
+            <div class="navbar-text totalPrice text-primary">
+                <!--                insert total price in cart-->
+                <p></p>
             </div>
         </div>
         <!--            add the link to the cart to this anchor tag-->

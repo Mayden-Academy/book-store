@@ -4,17 +4,21 @@ namespace App;
 
 Use App\Book as Book;
 
+/**
+ * Class Store
+ * @package App - contain all data about books from DataBase
+ */
 class Store
 {
-    public $db;
+    private $db;
 
     /**
      * Store constructor.
-     * @param DbConnector $connection
+     * @param PDO $db (database connection)
      */
-    public function __construct(DbConnector $connection)
+    public function __construct(\PDO $db)
     {
-        $this->db = $connection->db;
+        $this->db = $db;
     }
 
     /**
@@ -23,30 +27,14 @@ class Store
      */
     public function getAllBooks()
     {
-        $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
-        $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
-        $query->execute();
-        $books = $query->fetchAll();
-        return $books;
-    }
-
-
-    /**
-     * gets the data from the DataBase for individual book given the id
-     * @param int $id
-     * @return Book object with specified id
-     */
-    public function getIndividualBook(int $id): Book
-    {
-        $query = $this->db->prepare("SELECT `id`, `title`, `price`, `description`, `image` FROM `books` WHERE `id` = :id;");
-        $query->bindParam(":id", $id, \PDO::PARAM_INT);
-        $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
-        $query->execute();
-        $book = $query->fetch();
-        if ($book) {
-            return $book;
-        } else {
-            return new Book();
+        try {
+            $query = $this->db->prepare("SELECT `id`, `title`, `price`, `image` FROM `books`;");
+            $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
+            $query->execute();
+            return $query->fetchAll();
+        } catch(\Exception $e) {
+            return FALSE;
         }
+
     }
 }

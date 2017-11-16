@@ -1,3 +1,7 @@
+body {
+    min-width: 970px;
+}
+
 /*nav*/
 .trolley {
     height: 50px;
@@ -14,6 +18,7 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 30px;
 }
 
 .bookImage {
@@ -45,7 +50,7 @@ h1 {
 
 a:hover {
     text-decoration: none;
-    color: black;
+    color: #000000;
 }
 
 /*return to home*/
@@ -56,14 +61,14 @@ a:hover {
 }
 
 .returnToHome a {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 12px;
 }
-
-
+.content {
+    margin: 20px -15px;
+}
 /*individual book*/
 .individualBookImage {
-    background-color: #a94442;
     height: 500px;
 }
 
@@ -73,13 +78,11 @@ a:hover {
 }
 
 .individualBookTitle {
-    background-color: #5bc0de;
     height: 75px;
 }
 
 .individualBookDescription {
     height: 350px;
-    background-color: #5bc0de;
 }
 
 .individualBookDescriptionHeader h3 {
@@ -87,26 +90,20 @@ a:hover {
     line-height: 75px;
 }
 
-.individualBookPrice {
-    background-color: #2b542c;
-}
-
-.individualBookAddToCart {
-    background-color: #c7254e;
-    text-align: center;
-}
-
 /*footer*/
 footer {
     position: relative;
     bottom: 0;
     height: 30px;
+    font-size: 42px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
 }
 
 .stickyFooterExcluder {
     min-height: calc(100vh - 80px);
 }
 
-body {
-    min-width: 970px;
-}
