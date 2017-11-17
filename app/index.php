@@ -6,16 +6,18 @@ $store = new \App\Store($conn->getDb());
 $search = "";
 
 if (isset($_GET['search'])) {
+    $searchTerm = $_GET["search"];
     $search = 'search=' . $_GET['search'] . "&";
     $searchTitle = new \App\SearchTitle($conn->getDb());
     $books = $searchTitle->performSearch($_GET['search']);
 } else {
     $books = $store->getAllBooks();
+    $searchTerm = "";
 }
 
 if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
-    $search = "";
-    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
+
+    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max'], $searchTerm);
     $bookPrices = $store->getAllBookPrices();
     $sortBooks = new \App\SortBooks($bookPrices);
 } else {
@@ -39,7 +41,7 @@ $priceRanges = $filter->generatePriceRanges();
 
 <div class="stickyFooterExcluder">
 
-<?php include "includes/header.php" ?>
+    <?php include "includes/header.php" ?>
 
     <div class="container">
         <div class="row">
@@ -51,14 +53,16 @@ $priceRanges = $filter->generatePriceRanges();
                 <div class="filterColumn">
                     <h2>Filter by price</h2>
                     <?php foreach ($priceRanges as $ranges) {
-                        if ((!empty($_GET) && !isset($_GET['search'])) && $_GET['min'] == $ranges['lowerBound']) { ?>
+
+                        if ((!empty($_GET) && isset($_GET['min'])) && $_GET['min'] == $ranges['lowerBound']) { ?>
                             <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
                                 £<?php echo $ranges['upperBound']; ?>
                                 <a type="button" href="index.php?<?php $search ?>" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </a>
                             </p>
-                        <?php } else { ?>
+                            <?php
+                        } else { ?>
                             <p class="filterButton"><a
                                         href="index.php?<?php echo $search ?>min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
                                     £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
