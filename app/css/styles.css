@@ -68,6 +68,15 @@ a:hover {
     margin-bottom: 5px;
 }
 
+.backButton {
+    background: #337ab7;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px
+}
+
 .returnToHome a {
     color: #ffffff;
     font-size: 12px;
