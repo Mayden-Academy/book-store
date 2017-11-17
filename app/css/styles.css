@@ -39,7 +39,7 @@ h1 {
 }
 
 .filterColumn .active span {
-    color: red;
+    color: #ff0000;
 }
 
 /*search bar*/

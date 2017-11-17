@@ -35,11 +35,4 @@ class SortBooksTest extends TestCase
         $expectedSortedBooks = [$book, $book4, $book3, $book2];
         $this->assertEquals($expectedSortedBooks, $generatedSortedBooks);
     }
-
 }
-
-
-
-
-
-

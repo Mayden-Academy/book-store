@@ -32,10 +32,9 @@ class Store
             $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
             $query->execute();
             return $query->fetchAll();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return FALSE;
         }
-
     }
 
     /**
@@ -49,10 +48,9 @@ class Store
             $query->setFetchMode(\PDO::FETCH_CLASS, Book::class);
             $query->execute();
             return $query->fetchAll();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return FALSE;
         }
-
     }
 
     /**
@@ -61,7 +59,7 @@ class Store
      * @param float $max maximum price of a book
      * @return array of Book objects within specified price range
      */
-    public function getBooksWithinRange(int $min,float $max,string $search): array
+    public function getBooksWithinRange(int $min, float $max, string $search): array
     {
         try {
             $search = '%' . $search . '%';

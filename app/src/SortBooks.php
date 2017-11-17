@@ -2,10 +2,10 @@
 
 namespace App;
 
-
 class SortBooks
 {
     private $books;
+
     /**
      * FilterBooks constructor.
      * @param array $books array of Book objects

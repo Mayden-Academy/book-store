@@ -10,10 +10,10 @@ class BookTest extends TestCase {
         $this->assertTrue(is_object($book));
     }
 
-    public function displayPrice() {
+    public function testdisplayPrice() {
         $book = new \App\book();
         $book->price = 10;
         $displayedPrice = $book->displayPrice();
-        $this->assertequals($displayedPrice, "£10");
+        $this->assertEquals($displayedPrice, "£10");
     }
 }
