@@ -3,17 +3,16 @@ require "../vendor/autoload.php";
 session_start();
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
-$search = "";
-
 
 if (isset($_GET['search'])) {
     $searchTerm = $_GET["search"];
-    $search = 'search=' . $_GET['search'] . "&";
+    $searchGetTerm = 'search=' . $_GET['search'] . "&";
     $searchTitle = new \App\SearchTitle($conn->getDb());
-    $books = $searchTitle->performSearch($_GET['search']);
+    $books = $searchTitle->performSearch($searchTerm);
     $sortBooks = new \App\SortBooks($books);
 } else {
     $searchTerm = "";
+    $searchGetTerm = "";
     $books = $store->getAllBooks();
     $filteredBooksPrices = $store->getAllBookPrices();
     $sortBooks = new \App\SortBooks($filteredBooksPrices);
@@ -56,14 +55,14 @@ $priceRanges = $filter->generatePriceRanges();
                         if ((!empty($_GET) && isset($_GET['min'])) && $_GET['min'] == $ranges['lowerBound']) { ?>
                             <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
                                 £<?php echo $ranges['upperBound']; ?>
-                                <a type="button" href="index.php?<?php $search ?>" class="close" aria-label="Close">
+                                <a type="button" href="index.php?<?php $searchGetTerm ?>" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </a>
                             </p>
                             <?php
                         } else { ?>
                             <p class="filterButton"><a
-                                        href="index.php?<?php echo $search ?>min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
+                                        href="index.php?<?php echo $searchGetTerm ?>min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
                                     £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
                                 </a></p>
                         <?php }
