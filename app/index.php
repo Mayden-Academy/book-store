@@ -51,11 +51,11 @@ $priceRanges = $filter->generatePriceRanges();
                 <div class="filterColumn">
                     <h2>Filter by price</h2>
                     <?php foreach ($priceRanges as $ranges) {
-
                         if ((!empty($_GET) && isset($_GET['min'])) && $_GET['min'] == $ranges['lowerBound']) { ?>
                             <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
                                 £<?php echo $ranges['upperBound']; ?>
-                                <a type="button" href="index.php?<?php $searchGetTerm ?>" class="close" aria-label="Close">
+                                <a type="button" href="index.php?<?php $searchGetTerm ?>" class="close"
+                                   aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </a>
                             </p>
