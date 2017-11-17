@@ -153,7 +153,11 @@ class FilterBooks
      */
     public function generatePriceRanges(): array
     {
-        $this->search($this->books);
-        return $this->priceRanges;
+        if(count($this->books)>0) {
+            $this->search($this->books);
+            return $this->priceRanges;
+        } else {
+          return [];
+        }
     }
 }

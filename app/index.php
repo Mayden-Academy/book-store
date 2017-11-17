@@ -75,7 +75,7 @@ $priceRanges = $filter->generatePriceRanges();
             <div class="bookList col-xs-9">
                 <?php
                 if (!$books) {
-                    echo '<div class="alert alert-danger" role="alert">"Please contact admin!"</div>';
+                    echo '<div class="alert alert-info" role="alert">"No books found."</div>';
                 } else {
                     foreach ($books as $book) { ?>
                         <div class='listedBook col-xs-4'>

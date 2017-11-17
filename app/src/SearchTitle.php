@@ -31,7 +31,8 @@ class SearchTitle
             $query->setFetchMode(\PDO::FETCH_CLASS, BOOK::class);
             $query->bindParam(':search', $search, \PDO::PARAM_STR);
             $query->execute();
-            return $query->fetchAll();
+            $returnedBooks = $query->fetchAll();
+            return $returnedBooks;
         } catch (\Exception $e) {
             return false;
         }
