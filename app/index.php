@@ -45,7 +45,10 @@ $priceRanges = $filter->generatePriceRanges();
         <div class="row">
             <div class="searchAndFilterColumn col-xs-3">
                 <form class="searchForm col-xs-12" action="index.php" method="GET">
-                    <input class="searchInput col-xs-8" name="search" type="text" placeholder="Type here...">
+                    <input class="searchInput col-xs-8" name="search" type="text" placeholder="Type here..."
+                           value="<?php if (isset($_GET["search"])) {
+                               echo $_GET["search"];
+                           }; ?>">
                     <button class="searchButton btn btn-default col-xs-4" type="submit">Search</button>
                 </form>
                 <div class="filterColumn">
