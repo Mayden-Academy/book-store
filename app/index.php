@@ -18,7 +18,7 @@ if (isset($_GET['search'])) {
     $sortBooks = new \App\SortBooks($filteredBooksPrices);
 }
 
-if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
+if ((!empty($_GET) && isset($_GET['min'])) && $_GET['min'] && $_GET['max']) {
     $books = $store->getBooksWithinRange($_GET['min'], $_GET['max'], $searchTerm);
 }
 
