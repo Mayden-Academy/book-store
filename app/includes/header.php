@@ -6,6 +6,7 @@
         <a class="btn navbar-btn btn-primary" href="index.php">
             Home
         </a>
+        <a class="btn navbar-btn btn-primary" onclick="history.back(-1)">Back</a>
         <div class="navbar-right">
             <div class="navbar-text totalBooks text-primary">
                 <p>Books: <?php echo (empty($_SESSION)) ? "0": $_SESSION["cart"]["totalBooks"];?></p>

@@ -24,7 +24,6 @@ if (isset($_GET['id'])) {
     ?>
 
     <div class="container">
-        <a class="backButton" onclick="history.back(-1)">Back</a>
         <div class="row content">
             <div class="col-xs-5 individualBookImage">
                 <img src="<?php echo $individualBook->image; ?>"/>
