@@ -21,7 +21,7 @@ class FilterBooks
     /**
      * rounds the highest price up, to give the upper limit of the search.
      *
-     * @param array $books .
+     * @param array $books.
      * @return int - The upper limit of search
      */
     private function getUpperBound(array $books): int
@@ -156,6 +156,4 @@ class FilterBooks
         $this->search($this->books);
         return $this->priceRanges;
     }
-
 }
-

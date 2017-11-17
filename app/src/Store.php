@@ -35,7 +35,6 @@ class Store
         } catch(\Exception $e) {
             return FALSE;
         }
-
     }
 
     /**
@@ -52,7 +51,6 @@ class Store
         } catch(\Exception $e) {
             return FALSE;
         }
-
     }
 
     /**
@@ -72,6 +70,6 @@ class Store
             return $query->fetchAll();
         } catch (\Exception $e) {
         return FALSE;
-    }
+        }
     }
 }

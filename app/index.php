@@ -4,16 +4,16 @@ require "../vendor/autoload.php";
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
 
-//
 if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
     $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
     $bookPrices = $store->getAllBookPrices();
-    $sortBooks = new \App\SortBooks($bookPrices);
+    $sortedBooks = new \App\SortBooks($bookPrices);
 } else {
     $books = $store->getAllBooks();
-    $sortBooks = new \App\SortBooks($books);
+    $sortedBooks = new \App\SortBooks($books);
 }
-$bookPrices = $sortBooks->getBooksPriceAscending();
+
+$bookPrices = $sortedBooks->getBooksPriceAscending();
 $filter = new \App\FilterBooks($bookPrices);
 $priceRanges = $filter->generatePriceRanges();
 ?>
@@ -35,9 +35,9 @@ $priceRanges = $filter->generatePriceRanges();
     <div class="container">
         <div class="row">
             <div class="searchAndFilterColumn col-xs-3">
-                <form class="searchForm col-xs-12">
+                <form class="searchForm col-xs-12" action='index.php'>
                     <input class="searchInput col-xs-8" type="text" placeholder="Type here...">
-                    <button class="searchButton btn btn-default col-xs-4" type="button">Search</button>
+                    <button class="searchButton btn btn-default col-xs-4" type="submit">Search</button>
                 </form>
                 <div class="filterColumn">
                     <h2>Filter by price</h2>
@@ -61,7 +61,7 @@ $priceRanges = $filter->generatePriceRanges();
             <div class="bookList col-xs-9">
                 <?php
                 if (!$books) {
-                    echo '<div class="alert alert-danger" role="alert">"Something goes wrong, please try again later"</div>';
+                    echo '<div class="alert alert-danger" role="alert">"Please contact admin!"</div>';
                 } else {
                     foreach ($books as $book) { ?>
                         <div class='listedBook col-xs-4'>
