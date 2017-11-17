@@ -17,7 +17,6 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 <div class="stickyFooterExcluder">
-
     <?php include "includes/header.php";
         if (empty($individualBook) || !$individualBook->id) {
             echo '<div class="alert alert-danger" role="alert">Book does not exist</div>';
@@ -25,6 +24,7 @@ if (isset($_GET['id'])) {
     ?>
 
     <div class="container">
+        <a class="backButton" onclick="history.back(-1)">Back</a>
         <div class="row content">
             <div class="col-xs-5 individualBookImage">
                 <img src="<?php echo $individualBook->image; ?>"/>
