@@ -5,25 +5,24 @@ $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
 $search = "";
 
+
 if (isset($_GET['search'])) {
     $searchTerm = $_GET["search"];
     $search = 'search=' . $_GET['search'] . "&";
     $searchTitle = new \App\SearchTitle($conn->getDb());
     $books = $searchTitle->performSearch($_GET['search']);
+    $sortBooks = new \App\SortBooks($books);
 } else {
-    $books = $store->getAllBooks();
     $searchTerm = "";
+    $books = $store->getAllBooks();
+    $filteredBooksPrices = $store->getAllBookPrices();
+    $sortBooks = new \App\SortBooks($filteredBooksPrices);
 }
 
 if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
-
     $books = $store->getBooksWithinRange($_GET['min'], $_GET['max'], $searchTerm);
-    $bookPrices = $store->getAllBookPrices();
-    $sortBooks = new \App\SortBooks($bookPrices);
-} else {
-//    $books = $store->getAllBooks();
-    $sortBooks = new \App\SortBooks($books);
 }
+
 $bookPrices = $sortBooks->getBooksPriceAscending();
 $filter = new \App\FilterBooks($bookPrices);
 $priceRanges = $filter->generatePriceRanges();
