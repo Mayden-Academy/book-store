@@ -1,19 +1,28 @@
 <?php
-session_start();
 require "../vendor/autoload.php";
+session_start();
 $conn = new \App\DbConnector();
 $store = new \App\Store($conn->getDb());
 
-if (!empty($_GET) && $_GET['min'] && $_GET['max']) {
-    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max']);
-    $bookPrices = $store->getAllBookPrices();
-    $sortedBooks = new \App\SortBooks($bookPrices);
+if (isset($_GET['search'])) {
+    $searchTerm = $_GET["search"];
+    $searchGetTerm = 'search=' . $_GET['search'] . "&";
+    $searchTitle = new \App\SearchTitle($conn->getDb());
+    $books = $searchTitle->performSearch($searchTerm);
+    $sortBooks = new \App\SortBooks($books);
 } else {
+    $searchTerm = "";
+    $searchGetTerm = "";
     $books = $store->getAllBooks();
-    $sortedBooks = new \App\SortBooks($books);
+    $filteredBooksPrices = $store->getAllBookPrices();
+    $sortBooks = new \App\SortBooks($filteredBooksPrices);
 }
 
-$bookPrices = $sortedBooks->getBooksPriceAscending();
+if ((!empty($_GET) && isset($_GET['min'])) && $_GET['min'] && $_GET['max']) {
+    $books = $store->getBooksWithinRange($_GET['min'], $_GET['max'], $searchTerm);
+}
+
+$bookPrices = $sortBooks->getBooksPriceAscending();
 $filter = new \App\FilterBooks($bookPrices);
 $priceRanges = $filter->generatePriceRanges();
 ?>
@@ -35,23 +44,28 @@ $priceRanges = $filter->generatePriceRanges();
     <div class="container">
         <div class="row">
             <div class="searchAndFilterColumn col-xs-3">
-                <form class="searchForm col-xs-12" action='index.php'>
-                    <input class="searchInput col-xs-8" type="text" placeholder="Type here...">
+                <form class="searchForm col-xs-12" action="index.php" method="GET">
+                    <input class="searchInput col-xs-8" name="search" type="text" placeholder="Type here..."
+                           value="<?php if (isset($_GET["search"])) {
+                               echo $_GET["search"];
+                           }; ?>">
                     <button class="searchButton btn btn-default col-xs-4" type="submit">Search</button>
                 </form>
                 <div class="filterColumn">
                     <h2>Filter by price</h2>
                     <?php foreach ($priceRanges as $ranges) {
-                        if (!empty($_GET) && $_GET['min'] == $ranges['lowerBound']) { ?>
+                        if ((!empty($_GET) && isset($_GET['min'])) && $_GET['min'] == $ranges['lowerBound']) { ?>
                             <p class="filterButton active">£<?php echo $ranges['lowerBound']; ?> -
                                 £<?php echo $ranges['upperBound']; ?>
-                                <a type="button" href="index.php" class="close" aria-label="Close">
+                                <a type="button" href="index.php?<?php $searchGetTerm ?>" class="close"
+                                   aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </a>
                             </p>
-                        <?php } else { ?>
+                            <?php
+                        } else { ?>
                             <p class="filterButton"><a
-                                        href="index.php?min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
+                                        href="index.php?<?php echo $searchGetTerm ?>min=<?php echo $ranges['lowerBound']; ?>&max=<?php echo $ranges['upperBound']; ?>">
                                     £<?php echo $ranges['lowerBound']; ?> - £<?php echo $ranges['upperBound']; ?>
                                 </a></p>
                         <?php }
@@ -82,4 +96,3 @@ $priceRanges = $filter->generatePriceRanges();
 
 </body>
 </html>
-
